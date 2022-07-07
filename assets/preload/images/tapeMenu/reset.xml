@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="reset.png">
+	<!-- Created with Adobe Animate version 19.2.1.408 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="reset0000" x="90" y="90" width="140" height="130" frameX="0" frameY="0" frameWidth="140" frameHeight="131"/>
+	<SubTexture name="reset0001" x="90" y="90" width="140" height="130" frameX="0" frameY="0" frameWidth="140" frameHeight="131"/>
+	<SubTexture name="reset0002" x="90" y="273" width="140" height="130" frameX="0" frameY="0" frameWidth="140" frameHeight="131"/>
+	<SubTexture name="reset0003" x="90" y="273" width="140" height="130" frameX="0" frameY="0" frameWidth="140" frameHeight="131"/>
+	<SubTexture name="reset0004" x="283" y="273" width="138" height="131" frameX="0" frameY="0" frameWidth="140" frameHeight="131"/>
+	<SubTexture name="reset0005" x="283" y="273" width="138" height="131" frameX="0" frameY="0" frameWidth="140" frameHeight="131"/>
+	<SubTexture name="reset0006" x="90" y="273" width="140" height="130" frameX="0" frameY="0" frameWidth="140" frameHeight="131"/>
+	<SubTexture name="reset0007" x="90" y="273" width="140" height="130" frameX="0" frameY="0" frameWidth="140" frameHeight="131"/>
+	<SubTexture name="reset0008" x="90" y="273" width="140" height="130" frameX="0" frameY="0" frameWidth="140" frameHeight="131"/>
+	<SubTexture name="reset0009" x="90" y="273" width="140" height="130" frameX="0" frameY="0" frameWidth="140" frameHeight="131"/>
+</TextureAtlas>

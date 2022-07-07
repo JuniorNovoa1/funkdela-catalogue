@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="tapeBundled.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="distraught" x="0" y="0" width="243" height="122"/>
+	<SubTexture name="gift" x="243" y="0" width="243" height="122"/>
+	<SubTexture name="grace" x="486" y="0" width="243" height="122"/>
+	<SubTexture name="lockeddistraught" x="729" y="0" width="243" height="122"/>
+	<SubTexture name="lockedgift" x="0" y="122" width="243" height="122"/>
+	<SubTexture name="lockedgrace" x="243" y="122" width="243" height="122"/>
+	<SubTexture name="lockedscarynight" x="486" y="122" width="243" height="122"/>
+	<SubTexture name="lockedthink" x="729" y="122" width="243" height="122"/>
+	<SubTexture name="lockedthonk" x="0" y="244" width="243" height="122"/>
+	<SubTexture name="scarynight" x="243" y="244" width="243" height="122"/>
+	<SubTexture name="think" x="486" y="244" width="243" height="122"/>
+	<SubTexture name="thonk" x="729" y="244" width="243" height="122"/>
+</TextureAtlas>

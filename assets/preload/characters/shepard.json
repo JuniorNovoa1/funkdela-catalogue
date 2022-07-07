@@ -1,0 +1,122 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				-5,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "Shep Idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-5,
+				-6
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "Shep Left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				10,
+				-30
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "Shep Down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-29,
+				27
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "Shep Up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-48,
+				-7
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "Shep Right",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-5,
+				-6
+			],
+			"anim": "singLEFTmiss",
+			"fps": 24,
+			"name": "Miss Shep Left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				10,
+				-30
+			],
+			"anim": "singDOWNmiss",
+			"fps": 24,
+			"name": "Miss Shep Down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-29,
+				27
+			],
+			"anim": "singUPmiss",
+			"fps": 24,
+			"name": "Miss Shep Up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-48,
+				-7
+			],
+			"anim": "singRIGHTmiss",
+			"fps": 24,
+			"name": "Miss Shep Right",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/Shep_Assets",
+	"position": [
+		0,
+		350
+	],
+	"healthicon": "shepherd",
+	"flip_x": true,
+	"healthbar_colors": [
+		76,
+		73,
+		89
+	],
+	"camera_position": [
+		-60,
+		-130
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

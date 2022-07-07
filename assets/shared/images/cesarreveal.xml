@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="cesarreveal.png">
+	<!-- Created with Adobe Animate version 19.2.1.408 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="A0000" x="90" y="90" width="329" height="494" frameX="-2" frameY="-277" frameWidth="358" frameHeight="771"/>
+	<SubTexture name="B0001" x="472" y="90" width="336" height="639" frameX="-2" frameY="-132" frameWidth="358" frameHeight="771"/>
+	<SubTexture name="C0002" x="90" y="782" width="333" height="761" frameX="0" frameY="-10" frameWidth="358" frameHeight="771"/>
+	<SubTexture name="D0003" x="476" y="782" width="356" height="771" frameX="-2" frameY="0" frameWidth="358" frameHeight="771"/>
+</TextureAtlas>

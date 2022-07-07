@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="dreamfrontwall.png">
+	<!-- Created with Adobe Animate version 19.2.1.408 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="frontwall0000" x="90" y="90" width="539" height="1546"/>
+	<SubTexture name="frontwall0001" x="682" y="90" width="538" height="1546" frameX="0" frameY="0" frameWidth="539" frameHeight="1546"/>
+	<SubTexture name="frontwall0002" x="1273" y="90" width="538" height="1546" frameX="0" frameY="0" frameWidth="539" frameHeight="1546"/>
+	<SubTexture name="frontwall0003" x="682" y="90" width="538" height="1546" frameX="0" frameY="0" frameWidth="539" frameHeight="1546"/>
+</TextureAtlas>

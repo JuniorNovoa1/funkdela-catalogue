@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="mandelaArrow.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="down" x="0" y="0" width="243" height="122"/>
+	<SubTexture name="left" x="243" y="0" width="243" height="122"/>
+	<SubTexture name="right" x="0" y="122" width="243" height="122"/>
+	<SubTexture name="up" x="243" y="122" width="243" height="122"/>
+</TextureAtlas>

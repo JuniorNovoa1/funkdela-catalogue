@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="dreammidwall.png">
+	<!-- Created with Adobe Animate version 19.2.1.408 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="midwall0000" x="90" y="90" width="2660" height="1508"/>
+	<SubTexture name="midwall0001" x="90" y="1651" width="2660" height="1508"/>
+	<SubTexture name="midwall0002" x="90" y="3212" width="2660" height="1508"/>
+	<SubTexture name="midwall0003" x="90" y="1651" width="2660" height="1508"/>
+</TextureAtlas>

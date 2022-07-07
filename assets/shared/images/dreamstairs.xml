@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="dreamstairs.png">
+	<!-- Created with Adobe Animate version 19.2.1.408 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="stairs0000" x="90" y="90" width="2592" height="1458"/>
+	<SubTexture name="stairs0001" x="90" y="1601" width="2592" height="1458"/>
+	<SubTexture name="stairs0002" x="90" y="3112" width="2591" height="1456" frameX="-1" frameY="0" frameWidth="2592" frameHeight="1458"/>
+	<SubTexture name="stairs0003" x="90" y="1601" width="2592" height="1458"/>
+</TextureAtlas>

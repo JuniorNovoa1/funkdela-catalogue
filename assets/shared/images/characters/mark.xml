@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="mark.png">
+	<!-- Created with Adobe Animate version 19.2.1.408 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="downmark0000" x="90" y="90" width="418" height="441" frameX="0" frameY="-5" frameWidth="418" frameHeight="447"/>
+	<SubTexture name="downmark0001" x="90" y="90" width="418" height="441" frameX="0" frameY="-5" frameWidth="418" frameHeight="447"/>
+	<SubTexture name="downmark0002" x="90" y="584" width="410" height="447" frameX="-4" frameY="0" frameWidth="418" frameHeight="447"/>
+	<SubTexture name="downmark0003" x="90" y="584" width="410" height="447" frameX="-4" frameY="0" frameWidth="418" frameHeight="447"/>
+	<SubTexture name="downmark0004" x="90" y="584" width="410" height="447" frameX="-4" frameY="0" frameWidth="418" frameHeight="447"/>
+	<SubTexture name="downmark0005" x="90" y="584" width="410" height="447" frameX="-4" frameY="0" frameWidth="418" frameHeight="447"/>
+	<SubTexture name="downmark0006" x="90" y="584" width="410" height="447" frameX="-4" frameY="0" frameWidth="418" frameHeight="447"/>
+	<SubTexture name="downmark0007" x="90" y="584" width="410" height="447" frameX="-4" frameY="0" frameWidth="418" frameHeight="447"/>
+	<SubTexture name="downmark0008" x="90" y="584" width="410" height="447" frameX="-4" frameY="0" frameWidth="418" frameHeight="447"/>
+	<SubTexture name="downmark0009" x="90" y="584" width="410" height="447" frameX="-4" frameY="0" frameWidth="418" frameHeight="447"/>
+	<SubTexture name="downmark0010" x="90" y="584" width="410" height="447" frameX="-4" frameY="0" frameWidth="418" frameHeight="447"/>
+	<SubTexture name="downmark0011" x="90" y="584" width="410" height="447" frameX="-4" frameY="0" frameWidth="418" frameHeight="447"/>
+	<SubTexture name="downmark0012" x="90" y="584" width="410" height="447" frameX="-4" frameY="0" frameWidth="418" frameHeight="447"/>
+	<SubTexture name="downmark0013" x="90" y="584" width="410" height="447" frameX="-4" frameY="0" frameWidth="418" frameHeight="447"/>
+	<SubTexture name="downmark0014" x="90" y="584" width="410" height="447" frameX="-4" frameY="0" frameWidth="418" frameHeight="447"/>
+	<SubTexture name="leftmark0000" x="553" y="584" width="378" height="454" frameX="0" frameY="-1" frameWidth="378" frameHeight="455"/>
+	<SubTexture name="leftmark0001" x="553" y="584" width="378" height="454" frameX="0" frameY="-1" frameWidth="378" frameHeight="455"/>
+	<SubTexture name="leftmark0002" x="90" y="1091" width="377" height="455" frameX="-1" frameY="0" frameWidth="378" frameHeight="455"/>
+	<SubTexture name="leftmark0003" x="90" y="1091" width="377" height="455" frameX="-1" frameY="0" frameWidth="378" frameHeight="455"/>
+	<SubTexture name="leftmark0004" x="90" y="1091" width="377" height="455" frameX="-1" frameY="0" frameWidth="378" frameHeight="455"/>
+	<SubTexture name="leftmark0005" x="90" y="1091" width="377" height="455" frameX="-1" frameY="0" frameWidth="378" frameHeight="455"/>
+	<SubTexture name="leftmark0006" x="90" y="1091" width="377" height="455" frameX="-1" frameY="0" frameWidth="378" frameHeight="455"/>
+	<SubTexture name="leftmark0007" x="90" y="1091" width="377" height="455" frameX="-1" frameY="0" frameWidth="378" frameHeight="455"/>
+	<SubTexture name="leftmark0008" x="90" y="1091" width="377" height="455" frameX="-1" frameY="0" frameWidth="378" frameHeight="455"/>
+	<SubTexture name="leftmark0009" x="90" y="1091" width="377" height="455" frameX="-1" frameY="0" frameWidth="378" frameHeight="455"/>
+	<SubTexture name="leftmark0010" x="90" y="1091" width="377" height="455" frameX="-1" frameY="0" frameWidth="378" frameHeight="455"/>
+	<SubTexture name="leftmark0011" x="90" y="1091" width="377" height="455" frameX="-1" frameY="0" frameWidth="378" frameHeight="455"/>
+	<SubTexture name="leftmark0012" x="90" y="1091" width="377" height="455" frameX="-1" frameY="0" frameWidth="378" frameHeight="455"/>
+	<SubTexture name="leftmark0013" x="90" y="1091" width="377" height="455" frameX="-1" frameY="0" frameWidth="378" frameHeight="455"/>
+	<SubTexture name="leftmark0014" x="90" y="1091" width="377" height="455" frameX="-1" frameY="0" frameWidth="378" frameHeight="455"/>
+	<SubTexture name="markidle0000" x="520" y="1091" width="368" height="440" frameX="0" frameY="-10" frameWidth="368" frameHeight="451"/>
+	<SubTexture name="markidle0001" x="520" y="1091" width="368" height="440" frameX="0" frameY="-10" frameWidth="368" frameHeight="451"/>
+	<SubTexture name="markidle0002" x="520" y="1091" width="368" height="440" frameX="0" frameY="-10" frameWidth="368" frameHeight="451"/>
+	<SubTexture name="markidle0003" x="90" y="1599" width="362" height="441" frameX="-3" frameY="-9" frameWidth="368" frameHeight="451"/>
+	<SubTexture name="markidle0004" x="90" y="1599" width="362" height="441" frameX="-3" frameY="-9" frameWidth="368" frameHeight="451"/>
+	<SubTexture name="markidle0005" x="90" y="1599" width="362" height="441" frameX="-3" frameY="-9" frameWidth="368" frameHeight="451"/>
+	<SubTexture name="markidle0006" x="505" y="1599" width="356" height="446" frameX="-6" frameY="-5" frameWidth="368" frameHeight="451"/>
+	<SubTexture name="markidle0007" x="505" y="1599" width="356" height="446" frameX="-6" frameY="-5" frameWidth="368" frameHeight="451"/>
+	<SubTexture name="markidle0008" x="505" y="1599" width="356" height="446" frameX="-6" frameY="-5" frameWidth="368" frameHeight="451"/>
+	<SubTexture name="markidle0009" x="90" y="2098" width="350" height="450" frameX="-9" frameY="-1" frameWidth="368" frameHeight="451"/>
+	<SubTexture name="markidle0010" x="90" y="2098" width="350" height="450" frameX="-9" frameY="-1" frameWidth="368" frameHeight="451"/>
+	<SubTexture name="markidle0011" x="90" y="2098" width="350" height="450" frameX="-9" frameY="-1" frameWidth="368" frameHeight="451"/>
+	<SubTexture name="markidle0012" x="493" y="2098" width="350" height="451" frameX="-9" frameY="0" frameWidth="368" frameHeight="451"/>
+	<SubTexture name="markidle0013" x="493" y="2098" width="350" height="451" frameX="-9" frameY="0" frameWidth="368" frameHeight="451"/>
+	<SubTexture name="markidle0014" x="493" y="2098" width="350" height="451" frameX="-9" frameY="0" frameWidth="368" frameHeight="451"/>
+	<SubTexture name="markidle0015" x="493" y="2098" width="350" height="451" frameX="-9" frameY="0" frameWidth="368" frameHeight="451"/>
+	<SubTexture name="markidle0016" x="493" y="2098" width="350" height="451" frameX="-9" frameY="0" frameWidth="368" frameHeight="451"/>
+	<SubTexture name="markidle0017" x="493" y="2098" width="350" height="451" frameX="-9" frameY="0" frameWidth="368" frameHeight="451"/>
+	<SubTexture name="markidle0018" x="493" y="2098" width="350" height="451" frameX="-9" frameY="0" frameWidth="368" frameHeight="451"/>
+	<SubTexture name="markright0000" x="90" y="2602" width="377" height="458"/>
+	<SubTexture name="markright0001" x="90" y="2602" width="377" height="458"/>
+	<SubTexture name="markright0002" x="520" y="2602" width="377" height="457" frameX="0" frameY="-1" frameWidth="377" frameHeight="458"/>
+	<SubTexture name="markright0003" x="520" y="2602" width="377" height="457" frameX="0" frameY="-1" frameWidth="377" frameHeight="458"/>
+	<SubTexture name="markright0004" x="520" y="2602" width="377" height="457" frameX="0" frameY="-1" frameWidth="377" frameHeight="458"/>
+	<SubTexture name="markright0005" x="520" y="2602" width="377" height="457" frameX="0" frameY="-1" frameWidth="377" frameHeight="458"/>
+	<SubTexture name="markright0006" x="520" y="2602" width="377" height="457" frameX="0" frameY="-1" frameWidth="377" frameHeight="458"/>
+	<SubTexture name="markright0007" x="520" y="2602" width="377" height="457" frameX="0" frameY="-1" frameWidth="377" frameHeight="458"/>
+	<SubTexture name="markright0008" x="520" y="2602" width="377" height="457" frameX="0" frameY="-1" frameWidth="377" frameHeight="458"/>
+	<SubTexture name="markright0009" x="520" y="2602" width="377" height="457" frameX="0" frameY="-1" frameWidth="377" frameHeight="458"/>
+	<SubTexture name="markright0010" x="520" y="2602" width="377" height="457" frameX="0" frameY="-1" frameWidth="377" frameHeight="458"/>
+	<SubTexture name="markright0011" x="520" y="2602" width="377" height="457" frameX="0" frameY="-1" frameWidth="377" frameHeight="458"/>
+	<SubTexture name="markright0012" x="520" y="2602" width="377" height="457" frameX="0" frameY="-1" frameWidth="377" frameHeight="458"/>
+	<SubTexture name="markright0013" x="520" y="2602" width="377" height="457" frameX="0" frameY="-1" frameWidth="377" frameHeight="458"/>
+	<SubTexture name="markright0014" x="520" y="2602" width="377" height="457" frameX="0" frameY="-1" frameWidth="377" frameHeight="458"/>
+	<SubTexture name="upmark0000" x="90" y="3113" width="342" height="482" frameX="-2" frameY="0" frameWidth="346" frameHeight="482"/>
+	<SubTexture name="upmark0001" x="90" y="3113" width="342" height="482" frameX="-2" frameY="0" frameWidth="346" frameHeight="482"/>
+	<SubTexture name="upmark0002" x="485" y="3113" width="346" height="478" frameX="0" frameY="-4" frameWidth="346" frameHeight="482"/>
+	<SubTexture name="upmark0003" x="485" y="3113" width="346" height="478" frameX="0" frameY="-4" frameWidth="346" frameHeight="482"/>
+	<SubTexture name="upmark0004" x="485" y="3113" width="346" height="478" frameX="0" frameY="-4" frameWidth="346" frameHeight="482"/>
+	<SubTexture name="upmark0005" x="485" y="3113" width="346" height="478" frameX="0" frameY="-4" frameWidth="346" frameHeight="482"/>
+	<SubTexture name="upmark0006" x="485" y="3113" width="346" height="478" frameX="0" frameY="-4" frameWidth="346" frameHeight="482"/>
+	<SubTexture name="upmark0007" x="485" y="3113" width="346" height="478" frameX="0" frameY="-4" frameWidth="346" frameHeight="482"/>
+	<SubTexture name="upmark0008" x="485" y="3113" width="346" height="478" frameX="0" frameY="-4" frameWidth="346" frameHeight="482"/>
+	<SubTexture name="upmark0009" x="485" y="3113" width="346" height="478" frameX="0" frameY="-4" frameWidth="346" frameHeight="482"/>
+	<SubTexture name="upmark0010" x="485" y="3113" width="346" height="478" frameX="0" frameY="-4" frameWidth="346" frameHeight="482"/>
+	<SubTexture name="upmark0011" x="485" y="3113" width="346" height="478" frameX="0" frameY="-4" frameWidth="346" frameHeight="482"/>
+	<SubTexture name="upmark0012" x="485" y="3113" width="346" height="478" frameX="0" frameY="-4" frameWidth="346" frameHeight="482"/>
+	<SubTexture name="upmark0013" x="485" y="3113" width="346" height="478" frameX="0" frameY="-4" frameWidth="346" frameHeight="482"/>
+	<SubTexture name="upmark0014" x="485" y="3113" width="346" height="478" frameX="0" frameY="-4" frameWidth="346" frameHeight="482"/>
+</TextureAtlas>

@@ -1,0 +1,43 @@
+{
+	"storyName": "It followed me home",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"weekBefore": "",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"songs": [
+		[
+			"Think",
+			"markicons",
+			[
+				100,
+				100,
+				100
+			]
+		],
+		[
+			"Grace",
+			"savior",
+			[
+				20,
+				20,
+				20
+			]
+		],
+		[
+			"Scary Night",
+			"savior",
+			[
+				20,
+				20,
+				20
+			]
+		]
+	],
+	"hideStoryMode": false,
+	"weekName": "nothing"
+}
