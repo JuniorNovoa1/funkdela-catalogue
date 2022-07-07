@@ -49,14 +49,9 @@
 	<define name="ACHIEVEMENTS_ALLOWED" />
 	<define name="VIDEOS_ALLOWED" if="web || windows" unless="32bits"/>
 	<define name="PSYCH_WATERMARKS"/> <!-- DELETE THIS TO REMOVE WATERMARKS/DEV NAMES ON TITLE SCREEN -->
-	<define name="TITLE_SCREEN_EASTER_EGG" if="officialBuild"/> <!-- DELETE THE if="officialBuild" for enabling this on an unofficial build -->
 
 	<assets path="assets/preload" rename="assets" exclude="*.ogg" if="web"/>
 	<assets path="assets/preload" rename="assets" exclude="*.mp3"  unless="web"/>
-	<section if="TITLE_SCREEN_EASTER_EGG">
-		<assets path="assets/secrets" rename="assets" exclude="*.ogg" if="web"/>
-		<assets path="assets/secrets" rename="assets" exclude="*.mp3"  unless="web"/>
-	</section>
 
 	<!-- DONT ENABLE THIS -->
 	<define name="CHECK_FOR_UPDATES" if="desktop officialBuild"/>
@@ -88,8 +83,9 @@
 		<library name="week7"         preload="false" />
 	</section>
 	
-	<assets path="plugins/"             rename=''               if="VIDEOS_ALLOWED windows" />
-	<assets path="dlls/"                rename=''               if="VIDEOS_ALLOWED windows" />
+	//Dont use plugins and dlls anymore because they were removed for hxcodec
+	//<assets path="plugins/"             rename=''               if="VIDEOS_ALLOWED windows" />
+	//<assets path="dlls/"                rename=''               if="VIDEOS_ALLOWED windows" />
 	<assets path="assets/videos"        library="videos"        if="VIDEOS_ALLOWED"/>
 	<assets path="assets/songs"         library="songs"         exclude="*.ogg" if="web"/>
 	<assets path="assets/songs"         library="songs"         exclude="*.mp3" unless="web"/>
