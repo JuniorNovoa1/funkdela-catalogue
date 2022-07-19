@@ -3005,7 +3005,7 @@ class PlayState extends MusicBeatState
 
 		scoreTxt.text = 'Score: ' + songScore + ' | Combo Breaks: ' + songMisses + ' | Accuracy: ' + ratingName;
 		if(ratingName != '?')
-			scoreTxt.text += ' (' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%)';
+			scoreTxt.text += ' ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%';
 
 		if(botplayTxt.visible) {
 			botplaySine += 180 * elapsed;
