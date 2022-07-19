@@ -438,7 +438,7 @@ class TitleState extends MusicBeatState
 				new FlxTimer().start(1, function(tmr:FlxTimer)
 				{
 					#if !html5
-					MusicBeatState.switchState(new Warning());
+					FlxG.switchState(new Warning());
 					#else
 					MusicBeatState.switchState(new MainMenuState());
 					#end
