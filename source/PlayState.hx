@@ -75,7 +75,7 @@ class PlayState extends MusicBeatState
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
 	public static var ratingStuff:Array<Dynamic> = [
-		[' ']
+		['']
 	];
 	public var modchartTweens:Map<String, FlxTween> = new Map<String, FlxTween>();
 	public var modchartSprites:Map<String, ModchartSprite> = new Map<String, ModchartSprite>();
@@ -811,9 +811,9 @@ class PlayState extends MusicBeatState
 			case 'grace' | 'gift' | 'distraught':
 			addShaderToCamera("game", new VCRDistortionEffect(0,false,true,false));
 			case 'think':
-			addShaderToCamera("game", new VCRDistortionEffect(0.01,true,false,false));
+			addShaderToCamera("game", new VCRDistortionEffect(0.05,true,false,false));
 			case 'thonk': // thonk weird
-			addShaderToCamera("game", new VCRDistortionEffect(0.01,true,true,false));
+			addShaderToCamera("game", new VCRDistortionEffect(0.05,true,true,false));
 		}
 
 		switch (SONG.song)
