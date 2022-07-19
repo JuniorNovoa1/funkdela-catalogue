@@ -296,8 +296,6 @@ class PlayState extends MusicBeatState
 
 	var precacheList:Map<String, String> = new Map<String, String>();
 
-	var intenseMoment:Bool = false; // for gift
-
 	override public function create()
 	{
 		Paths.clearStoredMemory();
