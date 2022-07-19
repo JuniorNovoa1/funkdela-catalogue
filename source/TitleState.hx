@@ -438,7 +438,7 @@ class TitleState extends MusicBeatState
 				new FlxTimer().start(1, function(tmr:FlxTimer)
 				{
 					#if !html5
-					MusicBeatState.switchState(new Warning());
+					FlxG.switchState(new Warning());
 					#else
 					MusicBeatState.switchState(new MainMenuState());
 					#end
@@ -688,7 +688,7 @@ class TitleState extends MusicBeatState
 			{
 				remove(ngSpr);
 				remove(credGroup);
-				FlxG.camera.flash(FlxColor.WHITE, 4);
+				FlxG.camera.flash(FlxColor.BLACK, 3);
 
 				var easteregg:String = FlxG.save.data.psychDevsEasterEgg;
 				if (easteregg == null) easteregg = '';
