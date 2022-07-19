@@ -817,10 +817,10 @@ class PlayState extends MusicBeatState
 
 		switch(SONG.song.toLowerCase())
 		{
-			case 'grace' | 'scary-night' | 'gift':
+			case 'grace' | 'scary night' | 'gift':
 			addShaderToCamera("game", new VCRDistortionEffect(0,false,true,false));
 			case 'think' | 'thonk':
-			addShaderToCamera("game", new VCRDistortionEffect(0.1,true,true,false));
+			addShaderToCamera("game", new VCRDistortionEffect(0.1,true,false,false));
 		}
 
 		if(isPixelStage) {
