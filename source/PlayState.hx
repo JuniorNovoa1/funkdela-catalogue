@@ -817,10 +817,16 @@ class PlayState extends MusicBeatState
 
 		switch(SONG.song.toLowerCase())
 		{
-			case 'grace' | 'scary night' | 'gift':
+			case 'grace' | 'gift' | 'distraught':
 			addShaderToCamera("game", new VCRDistortionEffect(0,false,true,false));
 			case 'think' | 'thonk':
 			addShaderToCamera("game", new VCRDistortionEffect(0.1,true,false,false));
+		}
+
+		switch (SONG.song)
+		{
+			case 'Scary Night' | 'Scary-Night': // It legit wouldn't work if I didn't do this instead.
+			addShaderToCamera("game", new VCRDistortionEffect(0,false,true,false));
 		}
 
 		if(isPixelStage) {
@@ -3006,9 +3012,9 @@ class PlayState extends MusicBeatState
 		setOnLuas('curDecStep', curDecStep);
 		setOnLuas('curDecBeat', curDecBeat);
 
-		scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingName;
+		scoreTxt.text = 'Score: ' + songScore + ' | Combo Breaks: ' + songMisses + ' | Accuracy: ' + ratingName;
 		if(ratingName != '?')
-			scoreTxt.text += ' (' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%)' + ' - ' + ratingFC;
+			scoreTxt.text += ' (' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%)';
 
 		if(botplayTxt.visible) {
 			botplaySine += 180 * elapsed;
@@ -5200,7 +5206,6 @@ class PlayState extends MusicBeatState
 
 	public var ratingName:String = '?';
 	public var ratingPercent:Float;
-	public var ratingFC:String;
 	public function RecalculateRating() {
 		setOnLuas('score', songScore);
 		setOnLuas('misses', songMisses);
@@ -5234,18 +5239,9 @@ class PlayState extends MusicBeatState
 					}
 				}
 			}
-
-			// Rating FC
-			ratingFC = "";
-			if (sicks > 0) ratingFC = "SFC";
-			if (goods > 0) ratingFC = "GFC";
-			if (bads > 0 || shits > 0) ratingFC = "FC";
-			if (songMisses > 0 && songMisses < 10) ratingFC = "SDCB";
-			else if (songMisses >= 10) ratingFC = "Clear";
 		}
 		setOnLuas('rating', ratingPercent);
 		setOnLuas('ratingName', ratingName);
-		setOnLuas('ratingFC', ratingFC);
 	}
 
 	function DeathError() 

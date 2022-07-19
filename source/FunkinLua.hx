@@ -140,7 +140,6 @@ class FunkinLua {
 
 		set('rating', 0);
 		set('ratingName', '');
-		set('ratingFC', '');
 		set('version', MainMenuState.psychEngineVersion.trim());
 
 		set('inGameOver', false);
@@ -1262,9 +1261,6 @@ class FunkinLua {
 		});
 		Lua_helper.add_callback(lua, "setRatingName", function(value:String) {
 			PlayState.instance.ratingName = value;
-		});
-		Lua_helper.add_callback(lua, "setRatingFC", function(value:String) {
-			PlayState.instance.ratingFC = value;
 		});
 		Lua_helper.add_callback(lua, "getMouseX", function(camera:String) {
 			var cam:FlxCamera = cameraFromString(camera);
