@@ -29,7 +29,7 @@ class Warning extends MusicBeatState
 		warning.alpha = 0;
 		add(warning);
 
-		FlxG.sound.music.stop();
+		FlxG.sound.music.pause();
 		FlxG.sound.play(Paths.sound('scary'));
 
 		new FlxTimer().start(3.25, function(tmr:FlxTimer)
