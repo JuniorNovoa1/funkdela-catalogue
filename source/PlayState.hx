@@ -75,7 +75,7 @@ class PlayState extends MusicBeatState
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
 	public static var ratingStuff:Array<Dynamic> = [
-		['']
+		[' ']
 	];
 	public var modchartTweens:Map<String, FlxTween> = new Map<String, FlxTween>();
 	public var modchartSprites:Map<String, ModchartSprite> = new Map<String, ModchartSprite>();
@@ -810,8 +810,10 @@ class PlayState extends MusicBeatState
 		{
 			case 'grace' | 'gift' | 'distraught':
 			addShaderToCamera("game", new VCRDistortionEffect(0,false,true,false));
-			case 'think' | 'thonk':
-			addShaderToCamera("game", new VCRDistortionEffect(0.1,true,false,false));
+			case 'think':
+			addShaderToCamera("game", new VCRDistortionEffect(0.01,true,false,false));
+			case 'thonk': // thonk weird
+			addShaderToCamera("game", new VCRDistortionEffect(0.01,true,true,false));
 		}
 
 		switch (SONG.song)
@@ -3005,7 +3007,7 @@ class PlayState extends MusicBeatState
 
 		scoreTxt.text = 'Score: ' + songScore + ' | Combo Breaks: ' + songMisses + ' | Accuracy: ' + ratingName;
 		if(ratingName != '?')
-			scoreTxt.text += ' ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%';
+			scoreTxt.text += Highscore.floorDecimal(ratingPercent * 100, 2) + '%';
 
 		if(botplayTxt.visible) {
 			botplaySine += 180 * elapsed;
