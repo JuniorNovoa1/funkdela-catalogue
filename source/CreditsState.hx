@@ -92,8 +92,9 @@ class CreditsState extends MusicBeatState
 		#end
 
 		var pisspoop:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
-			['Porter'],
+			['Porters'],
 			['Junior',		        'ryk',   			'Literally recreated the source code',					    'https://discord.com/invite/J2HMjaUqfr',			'279ADC'],
+			['MemeHoovy',		        'ryk',   			'Fixed/Made a lot of code! (GODED)',					    'https://github.com/MemeHoovy',			        '279ADC'],
 			[''],
 			['Funkdela Catalogue Team'],
 			['LuckyThePuppet',		'lucky',		    'Director / Artist / Animatior / Charter',				    'https://twitter.com/LuckyThePuppet',	'444444'],
