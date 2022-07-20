@@ -296,8 +296,6 @@ class PlayState extends MusicBeatState
 
 	var precacheList:Map<String, String> = new Map<String, String>();
 
-	var intenseMoment:Bool = false; // for gift
-
 	override public function create()
 	{
 		Paths.clearStoredMemory();
@@ -808,18 +806,14 @@ class PlayState extends MusicBeatState
 
 		switch(SONG.song.toLowerCase())
 		{
-			case 'grace' | 'gift' | 'distraught':
-			addShaderToCamera("game", new VCRDistortionEffect(0,false,true,false));
-			case 'think':
-			addShaderToCamera("game", new VCRDistortionEffect(0.05,true,false,false));
-			case 'thonk': // thonk weird
+			case 'grace' | 'gift' | 'distraught' | 'think' | 'thonk':
 			addShaderToCamera("game", new VCRDistortionEffect(0.05,true,true,false));
 		}
 
 		switch (SONG.song)
 		{
 			case 'Scary Night' | 'Scary-Night': // It legit wouldn't work if I didn't do this instead.
-			addShaderToCamera("game", new VCRDistortionEffect(0,false,true,false));
+			addShaderToCamera("game", new VCRDistortionEffect(0.05,true,true,false));
 		}
 
 		if(isPixelStage) {
@@ -4037,27 +4031,32 @@ class PlayState extends MusicBeatState
 			{
 				if (SONG.song == 'grace')
 				{
-					FlxG.save.data.think = true;
+					ClientPrefs.ThinkUnlocked = true;
+					ClientPrefs.saveSettings();
 				}
 			
 				if (SONG.song == 'Think')
 				{
-					FlxG.save.data.scarenight = true;
+					ClientPrefs.ScaryNightUnlocked = true;
+					ClientPrefs.saveSettings();
 				}
 			
 				if (SONG.song == 'Scary Night')
 				{
-					FlxG.save.data.distraught = true;
+					ClientPrefs.DistraughtUnlocked = true;
+					ClientPrefs.saveSettings();
 				}
 			
 				if (SONG.song == 'distraught')
 				{
-					FlxG.save.data.gift = true;
+					ClientPrefs.GiftUnlocked = true;
+					ClientPrefs.saveSettings();
 				}
 			
 				if (SONG.song == 'gift')
 				{
-					FlxG.save.data.thonk = true;
+					ClientPrefs.ThonkUnlocked = true;
+					ClientPrefs.saveSettings();
 				}
 
 				trace('WENT BACK TO FREEPLAY??');
@@ -5239,7 +5238,21 @@ class PlayState extends MusicBeatState
 
 	function DeathError() 
 	{
-		if (SONG.song == 'grace')
+		#if !html5 // wasn't sure whether you were also building towards html5 or not
+		if (!FlxG.fullscreen) {
+			switch(FlxG.random.int(1,4)) {
+				case 1: 
+					lime.app.Application.current.window.alert('If you or a loved one had recently been effected by the result of exposure to analog television and mirrors, contact your local authority immediately. Financial compensation will not be available.', 'The Death Of Mark Healthcliff');
+				case 2:
+					lime.app.Application.current.window.alert('I am inside your home.', 'APPLICATION ERROR');
+				case 3:
+					lime.app.Application.current.window.alert('You are a fool.', 'APPLICATION ERROR');
+				case 4:
+					lime.app.Application.current.window.alert('Nothing is worth the risk.', 'APPLICATION ERROR');
+			}
+		}
+		#end
+      /*if (SONG.song == 'grace')
 		{
 			lime.app.Application.current.window.alert('If you or a loved one had recently been effected by the result of exposure to analog television and mirrors, contact your local authority immediately. Financial compensation will not be available.', 'The Death Of Mark Healthcliff');
 		}
@@ -5267,7 +5280,7 @@ class PlayState extends MusicBeatState
 		if (SONG.song == 'Thonk')
 		{
 			lime.app.Application.current.window.alert('Nothing is worth the risk.', 'APPLICATION ERROR');
-		}
+		}*/
 	}
 
 	#if ACHIEVEMENTS_ALLOWED

@@ -61,6 +61,7 @@ class GameOverSubstate extends MusicBeatSubstate
 		VcrEffect.animation.play('idle');
 		VcrEffect.antialiasing = ClientPrefs.globalAntialiasing;
 		VcrEffect.cameras = [camOther];
+		VcrEffect.alpha = 0.5;
 		VcrEffect.screenCenter();
 		VcrEffect.updateHitbox();
 		add(VcrEffect);
@@ -119,10 +120,10 @@ class GameOverSubstate extends MusicBeatSubstate
 			camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
 		}
 
-		if (controls.ACCEPT)
+		new FlxTimer().start(2, function(tmr:FlxTimer)
 		{
 			endBullshit();
-		}
+		});
 
 		if (controls.BACK)
 		{
@@ -199,10 +200,17 @@ class GameOverSubstate extends MusicBeatSubstate
 			//boyfriend.playAnim('deathConfirm', true);
 			FlxG.sound.music.stop();
 			//FlxG.sound.play(Paths.music(endSoundName));
-			FlxG.camera.fade(FlxColor.BLACK, 0.3, false, function()
+			#if !html5
+            FlxG.resetState();
+			#else
+			new FlxTimer().start(0.7, function(tmr:FlxTimer)
 			{
-				MusicBeatState.resetState();
+				FlxG.camera.fade(FlxColor.BLACK, 2, false, function()
+				{
+					MusicBeatState.resetState();
+				});
 			});
+			#end
 			PlayState.instance.callOnLuas('onGameOverConfirm', [true]);
 		}
 	}

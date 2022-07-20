@@ -36,6 +36,7 @@ class MainMenuState extends MusicBeatState
 	var daChoice:String = '';
 
 	//sprites
+	var box:FlxSprite;
 	var tv:FlxSprite;
 	var arrows:FlxSprite;
 	var tape1:FlxSprite;
@@ -45,6 +46,7 @@ class MainMenuState extends MusicBeatState
 	var tape5:FlxSprite;
 	var tape6:FlxSprite;
 	var reset:FlxSprite;
+	var resetBG:FlxSprite;
 
 	var Grace:Bool = false;
 	var Think:Bool = false;
@@ -52,6 +54,7 @@ class MainMenuState extends MusicBeatState
 	var Distraught:Bool = false;
 	var Gift:Bool = false;
 	var Thonk:Bool = false;
+	var GraceSelected:Bool = false;
 
 	var ThinkUnlocked:Bool = false;
 	var ScaryNightUnlocked:Bool = false;
@@ -60,7 +63,6 @@ class MainMenuState extends MusicBeatState
 	var ThonkUnlocked:Bool = false;
 
 	var Rkey:Bool = false;
-	var Ckey:Bool = false;
 	var canReset:Bool = false;
 	
 	var optionShit:Array<String> = [
@@ -81,11 +83,11 @@ class MainMenuState extends MusicBeatState
 	{
 		WeekData.loadTheFirstEnabledMod();
 
-		ThinkUnlocked = FlxG.save.data.think = true;
-		ScaryNightUnlocked = FlxG.save.data.scarynight = true;
-		DistraughtUnlocked = FlxG.save.data.distraught = true;
-		GiftUnlocked = FlxG.save.data.gift = true;
-		ThonkUnlocked = FlxG.save.data.thonk = true;
+		ThinkUnlocked = ClientPrefs.ThinkUnlocked;
+		ScaryNightUnlocked = ClientPrefs.ScaryNightUnlocked;
+		DistraughtUnlocked = ClientPrefs.DistraughtUnlocked;
+		GiftUnlocked = ClientPrefs.GiftUnlocked;
+		ThonkUnlocked = ClientPrefs.ThonkUnlocked;
 
 		Grace = true;
 
@@ -129,36 +131,36 @@ class MainMenuState extends MusicBeatState
 		tv.cameras = [camAchievement];
 		add(tv);
 
-		var box:FlxSprite = new FlxSprite().loadGraphic(Paths.image('box'));
+		box = new FlxSprite().loadGraphic(Paths.image('box'));
 		box.screenCenter();
 		box.antialiasing = ClientPrefs.globalAntialiasing;
 		box.cameras = [camAchievement];
 		add(box);
 
-		tape1 = new FlxSprite(525, 425).loadGraphic(Paths.image('tapeMenu/grace'));
+		tape1 = new FlxSprite(525, 495).loadGraphic(Paths.image('tapeMenu/grace'));
 		tape1.antialiasing = ClientPrefs.globalAntialiasing;
 		tape1.cameras = [camAchievement];
 		add(tape1);
 
 		if (ThinkUnlocked)
 		{
-			tape2 = new FlxSprite(800, 425).loadGraphic(Paths.image('tapeMenu/think'));
+			tape2 = new FlxSprite(800, 495).loadGraphic(Paths.image('tapeMenu/think'));
 		}
 		else
 		{
-			tape2 = new FlxSprite(800, 425).loadGraphic(Paths.image('tapeMenu/lockedthink'));
-		}	
+			tape2 = new FlxSprite(800, 495).loadGraphic(Paths.image('tapeMenu/lockedthink'));
+		}
 		tape2.antialiasing = ClientPrefs.globalAntialiasing;
 		tape2.cameras = [camAchievement];
 		add(tape2);
 
 		if (ScaryNightUnlocked)
 		{
-			tape3 = new FlxSprite(850, 425).loadGraphic(Paths.image('tapeMenu/scarynight'));
+			tape3 = new FlxSprite(850, 495).loadGraphic(Paths.image('tapeMenu/scarynight'));
 		}
 		else
 		{
-			tape3 = new FlxSprite(850, 425).loadGraphic(Paths.image('tapeMenu/lockedscarynight'));
+			tape3 = new FlxSprite(850, 495).loadGraphic(Paths.image('tapeMenu/lockedscarynight'));
 		}	
 		tape3.antialiasing = ClientPrefs.globalAntialiasing;
 		tape3.cameras = [camAchievement];
@@ -166,11 +168,11 @@ class MainMenuState extends MusicBeatState
 
 		if (DistraughtUnlocked)
 		{
-			tape4 = new FlxSprite(900, 425).loadGraphic(Paths.image('tapeMenu/distraught'));
+			tape4 = new FlxSprite(900, 495).loadGraphic(Paths.image('tapeMenu/distraught'));
 		}
 		else
 		{
-			tape4 = new FlxSprite(900, 425).loadGraphic(Paths.image('tapeMenu/lockeddistraught'));
+			tape4 = new FlxSprite(900, 495).loadGraphic(Paths.image('tapeMenu/lockeddistraught'));
 		}	
 		tape4.antialiasing = ClientPrefs.globalAntialiasing;
 		tape4.cameras = [camAchievement];
@@ -178,23 +180,23 @@ class MainMenuState extends MusicBeatState
 
 		if (GiftUnlocked)
 		{
-			tape5 = new FlxSprite(950, 425).loadGraphic(Paths.image('tapeMenu/gift'));
+			tape5 = new FlxSprite(950, 495).loadGraphic(Paths.image('tapeMenu/gift'));
 		}
 		else
 		{
-			tape5 = new FlxSprite(950, 425).loadGraphic(Paths.image('tapeMenu/lockedgift'));
-		}	
+			tape5 = new FlxSprite(950, 495).loadGraphic(Paths.image('tapeMenu/lockedgift'));
+		}
 		tape5.antialiasing = ClientPrefs.globalAntialiasing;
 		tape5.cameras = [camAchievement];
 		add(tape5);
 
 		if (ThonkUnlocked)
 		{
-			tape6 = new FlxSprite(1000, 425).loadGraphic(Paths.image('tapeMenu/thonk'));
+			tape6 = new FlxSprite(1000, 495).loadGraphic(Paths.image('tapeMenu/thonk'));
 		}
 		else
 		{
-			tape6 = new FlxSprite(1000, 425).loadGraphic(Paths.image('tapeMenu/lockedthonk'));
+			tape6 = new FlxSprite(1000, 495).loadGraphic(Paths.image('tapeMenu/lockedthonk'));
 		}	
 		tape6.antialiasing = ClientPrefs.globalAntialiasing;
 		tape6.cameras = [camAchievement];
@@ -206,6 +208,7 @@ class MainMenuState extends MusicBeatState
 		arrows.screenCenter();
 		arrows.antialiasing = ClientPrefs.globalAntialiasing;
 		arrows.cameras = [camAchievement];
+		arrows.alpha = 0.5;
 		add(arrows);
 
 		var scale:Float = 1;
@@ -232,8 +235,6 @@ class MainMenuState extends MusicBeatState
 		}
 
 		FlxG.camera.follow(camFollowPos, null, 1);
-
-		// NG.core.calls.event.logEvent('swag').send();
 
 		changeItem();
 
@@ -274,60 +275,71 @@ class MainMenuState extends MusicBeatState
 		if (FlxG.keys.justPressed.R)
 		{
 			Rkey = true;
+			resetBG = new FlxSprite();
+			resetBG.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+			resetBG.cameras = [camAchievement];
+			resetBG.alpha = 0;
+			add(resetBG);
+			
+			reset = new FlxSprite(0, 0).loadGraphic(Paths.image('tapeMenu/are'));
+			reset.antialiasing = ClientPrefs.globalAntialiasing;
+			reset.screenCenter();
+			reset.cameras = [camAchievement];
+			reset.alpha = 0;
+			add(reset);
 
-			if (!Ckey)
-			{
-				reset = new FlxSprite(0, 0).loadGraphic(Paths.image('tapeMenu/are'));
-				reset.antialiasing = ClientPrefs.globalAntialiasing;
-				reset.screenCenter();
-				reset.cameras = [camAchievement];
-				add(reset);
+			new FlxTimer().start(0.5, function(tmr:FlxTimer) {
+				FlxTween.tween(resetBG, {alpha: 0.5}, 0.5);
+				FlxTween.tween(reset, {alpha: 1}, 0.5);
+			});
 
-				canReset = true;
-			}
+			canReset = true;
 		}
-		if (FlxG.keys.justPressed.C)
-		{
-			Ckey = true;
-		}
 
-		if (Rkey && Ckey)
+		if (Rkey && FlxG.keys.justPressed.C)
 		{
-			FlxG.save.data.think = true;
-			FlxG.save.data.think = true;
-			FlxG.save.data.scarynight = true;
-			FlxG.save.data.distraught = true;
-			FlxG.save.data.gift = true;
-			FlxG.save.data.think = true;
+			ClientPrefs.ThinkUnlocked = true;
+			ClientPrefs.ScaryNightUnlocked = true;
+			ClientPrefs.DistraughtUnlocked = true;
+			ClientPrefs.GiftUnlocked = true;
+			ClientPrefs.ThonkUnlocked = true;
+			ClientPrefs.saveSettings();
+			resetBG.alpha = 0;
+			reset.alpha = 0;
+			canReset = false;
 		}
 
 		if (canReset)
 		{
-			if (FlxG.keys.justPressed.ENTER)
+			if (FlxG.keys.justPressed.Y)
 			{
-				FlxG.save.data.think = false;
-				FlxG.save.data.scarynight = false;
-				FlxG.save.data.distraught = false;
-				FlxG.save.data.gift = false;
-				FlxG.save.data.thonk = false;
-
+				ClientPrefs.ThinkUnlocked = false;
+				ClientPrefs.ScaryNightUnlocked = false;
+				ClientPrefs.DistraughtUnlocked = false;
+				ClientPrefs.GiftUnlocked = false;
+				ClientPrefs.ThonkUnlocked = false;
+				ClientPrefs.saveSettings();
+				resetBG.alpha = 0;
+				reset.alpha = 0;
 				canReset = false;
-			}	
+			}
 
-			if (FlxG.keys.justPressed.ESCAPE || FlxG.keys.justPressed.BACKSPACE)
+			if (FlxG.keys.justPressed.N)
 			{
+				resetBG.alpha = 0;
+				reset.alpha = 0;
 				canReset = false;
 			}
 		}
 
 		if (FlxG.keys.justPressed.ONE)
 		{
-			FlxTween.tween(tape1, {x: 525}, 0.35);
-			FlxTween.tween(tape2, {x: 800}, 0.35);
-			FlxTween.tween(tape3, {x: 850}, 0.35);
-			FlxTween.tween(tape4, {x: 900}, 0.35);
-			FlxTween.tween(tape5, {x: 950}, 0.35);
-			FlxTween.tween(tape6, {x: 1000}, 0.35);
+			FlxTween.tween(tape1, {x: 525}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape2, {x: 800}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape3, {x: 850}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape4, {x: 900}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape5, {x: 950}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape6, {x: 1000}, 0.35, {ease: FlxEase.cubeOut});
 			trace('Grace');
 			Grace = true;
 			Think = false;
@@ -335,16 +347,17 @@ class MainMenuState extends MusicBeatState
 			Distraught = false;
 			Gift = false;
 			Thonk = false;
+			GraceSelected = true;
 		}
 
 		if (FlxG.keys.justPressed.TWO)
 		{
-			FlxTween.tween(tape1, {x: 0}, 0.35);
-			FlxTween.tween(tape2, {x: 525}, 0.35);
-			FlxTween.tween(tape3, {x: 850}, 0.35);
-			FlxTween.tween(tape4, {x: 900}, 0.35);
-			FlxTween.tween(tape5, {x: 950}, 0.35);
-			FlxTween.tween(tape6, {x: 1000}, 0.35);
+			FlxTween.tween(tape1, {x: 0}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape2, {x: 525}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape3, {x: 850}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape4, {x: 900}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape5, {x: 950}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape6, {x: 1000}, 0.35, {ease: FlxEase.cubeOut});
 			trace('Think'); 			
 			if (ThinkUnlocked)
 			{
@@ -355,16 +368,17 @@ class MainMenuState extends MusicBeatState
 				Gift = false;
 				Thonk = false;
 			}
+			GraceSelected = false;
 		}
 
 		if (FlxG.keys.justPressed.THREE)
 		{
-			FlxTween.tween(tape1, {x: 0}, 0.35);
-			FlxTween.tween(tape2, {x: 50}, 0.35);
-			FlxTween.tween(tape3, {x: 525}, 0.35);
-			FlxTween.tween(tape4, {x: 900}, 0.35);
-			FlxTween.tween(tape5, {x: 950}, 0.35);
-			FlxTween.tween(tape6, {x: 1000}, 0.35);
+			FlxTween.tween(tape1, {x: 0}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape2, {x: 50}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape3, {x: 525}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape4, {x: 900}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape5, {x: 950}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape6, {x: 1000}, 0.35, {ease: FlxEase.cubeOut});
 			trace('Scary Night');
 			if (ScaryNightUnlocked)
 			{
@@ -375,17 +389,18 @@ class MainMenuState extends MusicBeatState
 				Gift = false;
 				Thonk = false;
 			}
+			GraceSelected = false;
 		}
 
 		if (FlxG.keys.justPressed.FOUR)
 		{
-			FlxTween.tween(tape1, {x: 0}, 0.35);
-			FlxTween.tween(tape2, {x: 50}, 0.35);
-			FlxTween.tween(tape3, {x: 100}, 0.35);
-			FlxTween.tween(tape4, {x: 525}, 0.35);
-			FlxTween.tween(tape5, {x: 950}, 0.35);
-			FlxTween.tween(tape6, {x: 1000}, 0.35);
-			trace('Distraught');			
+			FlxTween.tween(tape1, {x: 0}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape2, {x: 50}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape3, {x: 100}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape4, {x: 525}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape5, {x: 950}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape6, {x: 1000}, 0.35, {ease: FlxEase.cubeOut});
+			trace('Distraught');
 			if (DistraughtUnlocked)
 			{
 				Grace = false;
@@ -395,16 +410,17 @@ class MainMenuState extends MusicBeatState
 				Gift = false;
 				Thonk = false;
 			}
+			GraceSelected = false;
 		}
 
 		if (FlxG.keys.justPressed.FIVE)
 		{
-			FlxTween.tween(tape1, {x: 0}, 0.35);
-			FlxTween.tween(tape2, {x: 50}, 0.35);
-			FlxTween.tween(tape3, {x: 100}, 0.35);
-			FlxTween.tween(tape4, {x: 150}, 0.35);
-			FlxTween.tween(tape5, {x: 525}, 0.35);
-			FlxTween.tween(tape6, {x: 1000}, 0.35);
+			FlxTween.tween(tape1, {x: 0}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape2, {x: 50}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape3, {x: 100}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape4, {x: 150}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape5, {x: 525}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape6, {x: 1000}, 0.35, {ease: FlxEase.cubeOut});
 			trace('Gift');			
 			if (GiftUnlocked)
 			{
@@ -415,16 +431,17 @@ class MainMenuState extends MusicBeatState
 				Gift = true;
 				Thonk = false;
 			}
+			GraceSelected = false;
 		}
 
 		if (FlxG.keys.justPressed.SIX)
 		{
-			FlxTween.tween(tape1, {x: 0}, 0.35);
-			FlxTween.tween(tape2, {x: 50}, 0.35);
-			FlxTween.tween(tape3, {x: 100}, 0.35);
-			FlxTween.tween(tape4, {x: 150}, 0.35);
-			FlxTween.tween(tape5, {x: 200}, 0.35);
-			FlxTween.tween(tape6, {x: 525}, 0.35);
+			FlxTween.tween(tape1, {x: 0}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape2, {x: 50}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape3, {x: 100}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape4, {x: 150}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape5, {x: 200}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape6, {x: 525}, 0.35, {ease: FlxEase.cubeOut});
 			if (ThonkUnlocked)
 			{
 				Grace = false;
@@ -434,91 +451,222 @@ class MainMenuState extends MusicBeatState
 				Gift = false;
 				Thonk = true;
 			}
+			GraceSelected = false;
 			trace('Thonk');
 		}
 
-		if (FlxG.keys.justPressed.ENTER && !canReset)
+		// grace
+		// This looks ridiculous, but it works though.
+		// I've been trying to get this to work for a while and I was starting to get very frustrated.
+		if (FlxG.keys.justPressed.ENTER && !canReset && Grace && GraceSelected)
 		{
-			FlxTween.tween(tape1, {y: 350}, 0.55);
-			FlxTween.tween(tape2, {y: 350}, 0.55);
-			FlxTween.tween(tape3, {y: 350}, 0.55);
-			FlxTween.tween(tape4, {y: 350}, 0.55);
-			FlxTween.tween(tape5, {y: 350}, 0.55);
-			FlxTween.tween(tape6, {y: 350}, 0.55);
+			arrows.visible = false;
+			FlxTween.tween(tape1, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape2, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape3, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape4, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape5, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape6, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
 
-			FlxTween.tween(camAchievement, {angle: 100}, 0.55);
-			FlxTween.tween(camAchievement, {zoom: 2.5}, 0.55, {onComplete:
-				function (twn:FlxTween)
+			FlxTween.tween(camAchievement, {angle: 100}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(box, {y: 950}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tv, {y: 150}, 0.55, {ease: FlxEase.cubeOut});
+			FlxTween.tween(camAchievement, {zoom: 3.5}, 0.95, {
+				ease: FlxEase.cubeIn,
+				onComplete: function (twn:FlxTween)
 				{
 					var black:FlxSprite = new FlxSprite();
 					black.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
 					black.cameras = [camAchievement];
 					add(black);
 
-					if (Grace)
-					{
-						trace('loading grace');
-						PlayState.SONG = Song.loadFromJson('grace', 'grace');
-						PlayState.isStoryMode = false;
-						PlayState.storyDifficulty = 1;
-						PlayState.storyWeek = 1;
-						FlxTransitionableState.skipNextTransIn = true;
-						FlxTransitionableState.skipNextTransOut = true;
-					}
+					trace('loading grace');
+					PlayState.SONG = Song.loadFromJson('grace', 'grace');
+					PlayState.isStoryMode = false;
+					PlayState.storyDifficulty = 1;
+					PlayState.storyWeek = 1;
+					FlxTransitionableState.skipNextTransIn = true;
+					FlxTransitionableState.skipNextTransOut = true;
 
-					if (Think && ThinkUnlocked)
-					{
-						PlayState.SONG = Song.loadFromJson('think-hard', 'think');
-						PlayState.isStoryMode = false;
-						PlayState.storyDifficulty = 2;
-						PlayState.storyWeek = 1;
-						FlxTransitionableState.skipNextTransIn = true;
-						FlxTransitionableState.skipNextTransOut = true;
-					}
+					LoadingState.loadAndSwitchState(new PlayState());
+				}
+			});
+		}
 
-					if (ScaryNight && ScaryNightUnlocked)
-					{
-						trace('loading scary-night');
-						PlayState.SONG = Song.loadFromJson('scary-night', 'scary-night');
-						PlayState.isStoryMode = false;
-						PlayState.storyDifficulty = 1;
-						PlayState.storyWeek = 1;
-						FlxTransitionableState.skipNextTransIn = true;
-						FlxTransitionableState.skipNextTransOut = true;
-					}
+		// think
+		if (FlxG.keys.justPressed.ENTER && !canReset && Think && ThinkUnlocked && !GraceSelected)
+		{
+			arrows.visible = false;
+			FlxTween.tween(tape1, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape2, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape3, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape4, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape5, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape6, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
 
-					if (Distraught && DistraughtUnlocked)
-					{
-						trace('loading distraught');
-						PlayState.SONG = Song.loadFromJson('distraught', 'distraught');
-						PlayState.isStoryMode = false;
-						PlayState.storyDifficulty = 1;
-						PlayState.storyWeek = 1;
-						FlxTransitionableState.skipNextTransIn = true;
-					    FlxTransitionableState.skipNextTransOut = true;
-					}
+			FlxTween.tween(camAchievement, {angle: 100}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(box, {y: 950}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tv, {y: 150}, 0.55, {ease: FlxEase.cubeOut});
+			FlxTween.tween(camAchievement, {zoom: 3.5}, 0.95, {
+				ease: FlxEase.cubeIn,
+				onComplete: function (twn:FlxTween)
+				{
+					var black:FlxSprite = new FlxSprite();
+					black.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+					black.cameras = [camAchievement];
+					add(black);
 
-					if (Gift && GiftUnlocked)
-					{
-						trace('loading gift');
-						PlayState.SONG = Song.loadFromJson('gift', 'gift');
-						PlayState.isStoryMode = false;
-						PlayState.storyDifficulty = 1;
-						PlayState.storyWeek = 1;
-						FlxTransitionableState.skipNextTransIn = true;
-						FlxTransitionableState.skipNextTransOut = true;
-					}
+					trace("loading think");
+					PlayState.SONG = Song.loadFromJson('think-hard', 'think');
+					PlayState.isStoryMode = false;
+					PlayState.storyDifficulty = 2;
+					PlayState.storyWeek = 1;
+					FlxTransitionableState.skipNextTransIn = true;
+					FlxTransitionableState.skipNextTransOut = true;
 
-					if (Thonk && ThonkUnlocked)
-					{
-						trace('loading thonk');
-						PlayState.SONG = Song.loadFromJson('thonk', 'thonk');
-						PlayState.isStoryMode = false;
-						PlayState.storyDifficulty = 1;
-						PlayState.storyWeek = 1;
-						FlxTransitionableState.skipNextTransIn = true;
-						FlxTransitionableState.skipNextTransOut = true;	
-					}
+					LoadingState.loadAndSwitchState(new PlayState());
+				}
+			});
+		}	
+
+		// scary night
+		if (FlxG.keys.justPressed.ENTER && !canReset && ScaryNight && ScaryNightUnlocked && !GraceSelected)
+		{
+			arrows.visible = false;
+			FlxTween.tween(tape1, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape2, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape3, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape4, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape5, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape6, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+
+			FlxTween.tween(camAchievement, {angle: 100}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(box, {y: 950}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tv, {y: 150}, 0.55, {ease: FlxEase.cubeOut});
+			FlxTween.tween(camAchievement, {zoom: 3.5}, 0.95, {
+				ease: FlxEase.cubeIn,
+				onComplete: function (twn:FlxTween)
+				{
+					var black:FlxSprite = new FlxSprite();
+					black.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+					black.cameras = [camAchievement];
+					add(black);
+
+					trace('loading scary-night');
+					PlayState.SONG = Song.loadFromJson('scary-night', 'scary-night');
+					PlayState.isStoryMode = false;
+					PlayState.storyDifficulty = 1;
+					PlayState.storyWeek = 1;
+					FlxTransitionableState.skipNextTransIn = true;
+					FlxTransitionableState.skipNextTransOut = true;
+
+					LoadingState.loadAndSwitchState(new PlayState());
+				}
+			});
+		}
+
+		// distraught
+		if (FlxG.keys.justPressed.ENTER && !canReset && Distraught && DistraughtUnlocked && !GraceSelected)
+		{
+			arrows.visible = false;
+			FlxTween.tween(tape1, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape2, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape3, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape4, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape5, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape6, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+
+			FlxTween.tween(camAchievement, {angle: 100}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(box, {y: 950}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tv, {y: 150}, 0.55, {ease: FlxEase.cubeOut});
+			FlxTween.tween(camAchievement, {zoom: 3.5}, 0.95, {
+				ease: FlxEase.cubeIn,
+				onComplete: function (twn:FlxTween)
+				{
+					var black:FlxSprite = new FlxSprite();
+					black.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+					black.cameras = [camAchievement];
+					add(black);
+
+					trace('loading distraught');
+					PlayState.SONG = Song.loadFromJson('distraught', 'distraught');
+					PlayState.isStoryMode = false;
+					PlayState.storyDifficulty = 1;
+					PlayState.storyWeek = 1;
+					FlxTransitionableState.skipNextTransIn = true;
+					FlxTransitionableState.skipNextTransOut = true;
+
+					LoadingState.loadAndSwitchState(new PlayState());
+				}
+			});
+		}
+
+		// gift
+		if (FlxG.keys.justPressed.ENTER && !canReset && Gift && GiftUnlocked && !GraceSelected)
+		{
+			arrows.visible = false;
+			FlxTween.tween(tape1, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape2, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape3, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape4, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape5, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape6, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+
+			FlxTween.tween(camAchievement, {angle: 100}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(box, {y: 950}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tv, {y: 150}, 0.55, {ease: FlxEase.cubeOut});
+			FlxTween.tween(camAchievement, {zoom: 3.5}, 0.95, {
+				ease: FlxEase.cubeIn,
+				onComplete: function (twn:FlxTween)
+				{
+					var black:FlxSprite = new FlxSprite();
+					black.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+					black.cameras = [camAchievement];
+					add(black);
+
+					trace('loading gift');
+					PlayState.SONG = Song.loadFromJson('gift', 'gift');
+					PlayState.isStoryMode = false;
+					PlayState.storyDifficulty = 1;
+					PlayState.storyWeek = 1;
+					FlxTransitionableState.skipNextTransIn = true;
+					FlxTransitionableState.skipNextTransOut = true;
+
+					LoadingState.loadAndSwitchState(new PlayState());
+				}
+			});
+		}
+
+		// thonk
+		if (FlxG.keys.justPressed.ENTER && !canReset && Thonk && ThonkUnlocked && !GraceSelected)
+		{
+			arrows.visible = false;
+			FlxTween.tween(tape1, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape2, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape3, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape4, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape5, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape6, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+
+			FlxTween.tween(camAchievement, {angle: 100}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(box, {y: 950}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tv, {y: 150}, 0.55, {ease: FlxEase.cubeOut});
+			FlxTween.tween(camAchievement, {zoom: 3.5}, 0.95, {
+				ease: FlxEase.cubeIn,
+				onComplete: function (twn:FlxTween)
+				{
+					var black:FlxSprite = new FlxSprite();
+					black.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+					black.cameras = [camAchievement];
+					add(black);
+
+					trace('loading thonk');
+					PlayState.SONG = Song.loadFromJson('thonk', 'thonk');
+					PlayState.isStoryMode = false;
+					PlayState.storyDifficulty = 1;
+					PlayState.storyWeek = 1;
+					FlxTransitionableState.skipNextTransIn = true;
+					FlxTransitionableState.skipNextTransOut = true;
 
 					LoadingState.loadAndSwitchState(new PlayState());
 				}
@@ -546,42 +694,42 @@ class MainMenuState extends MusicBeatState
 			{
 				selectedSomethin = true;
 				arrows.visible = false;
-				FlxTween.tween(tape1, {x: -500}, 0.35);
-				FlxTween.tween(tape2, {x: -500}, 0.35);
-				FlxTween.tween(tape3, {x: -500}, 0.35);
-				FlxTween.tween(tape4, {x: -500}, 0.35);
-				FlxTween.tween(tape5, {x: -500}, 0.35);
-				FlxTween.tween(tape6, {x: -500}, 0.35);
-				FlxTween.tween(tv, {y: 150}, 0.35, {onComplete:
-					function (twn:FlxTween)
+				FlxTween.tween(tape1, {x: -500}, 0.75, {ease: FlxEase.cubeIn});
+				FlxTween.tween(tape2, {x: -500}, 0.75, {ease: FlxEase.cubeIn});
+				FlxTween.tween(tape3, {x: -500}, 0.75, {ease: FlxEase.cubeIn});
+				FlxTween.tween(tape4, {x: -500}, 0.75, {ease: FlxEase.cubeIn});
+				FlxTween.tween(tape5, {x: -500}, 0.75, {ease: FlxEase.cubeIn});
+				FlxTween.tween(tape6, {x: -500}, 0.75, {ease: FlxEase.cubeIn});
+				FlxTween.tween(tv, {y: 150}, 0.5, {ease: FlxEase.cubeIn});
+				new FlxTimer().start(0.2, function(timer:FlxTimer){
+					FlxTween.tween(camAchievement, {x: 1500}, 0.5, {
+					ease: FlxEase.cubeIn,
+					onComplete:function (twn:FlxTween)
 					{
-						FlxTween.tween(camAchievement, {x: 1500}, 0.4, {onComplete:
-							function (twn:FlxTween)
-							{
-							    LoadingState.loadAndSwitchState(new options.OptionsState());
-						    }});
+						LoadingState.loadAndSwitchState(new options.OptionsState());
 					}});
+				});
 			}
 	
 			if (controls.UI_RIGHT_P)
 			{
 				selectedSomethin = true;
 				arrows.visible = false;
-				FlxTween.tween(tape1, {x: 1500}, 0.35);
-				FlxTween.tween(tape2, {x: 1500}, 0.35);
-				FlxTween.tween(tape3, {x: 1500}, 0.35);
-				FlxTween.tween(tape4, {x: 1500}, 0.35);
-				FlxTween.tween(tape5, {x: 1500}, 0.35);
-				FlxTween.tween(tape6, {x: 1500}, 0.35);
-				FlxTween.tween(tv, {y: 150}, 0.35, {onComplete:
-					function (twn:FlxTween)
+				FlxTween.tween(tape1, {x: 1500}, 0.75, {ease: FlxEase.cubeOut});
+				FlxTween.tween(tape2, {x: 1500}, 0.75, {ease: FlxEase.cubeOut});
+				FlxTween.tween(tape3, {x: 1500}, 0.75, {ease: FlxEase.cubeOut});
+				FlxTween.tween(tape4, {x: 1500}, 0.75, {ease: FlxEase.cubeOut});
+				FlxTween.tween(tape5, {x: 1500}, 0.75, {ease: FlxEase.cubeOut});
+				FlxTween.tween(tape6, {x: 1500}, 0.75, {ease: FlxEase.cubeOut});
+				FlxTween.tween(tv, {y: 150}, 0.55, {ease: FlxEase.cubeOut});
+				new FlxTimer().start(0.2, function(timer:FlxTimer) {
+					FlxTween.tween(camAchievement, {x: -1500}, 0.5, {
+					ease: FlxEase.cubeIn,
+					onComplete:function (twn:FlxTween)
 					{
-						FlxTween.tween(camAchievement, {x: -1500}, 0.4, {onComplete:
-							function (twn:FlxTween)
-							{
-								MusicBeatState.switchState(new CreditsState());
-						    }});
+						MusicBeatState.switchState(new CreditsState());
 					}});
+			    });
 			}
 
 			if (controls.BACK)
@@ -591,13 +739,6 @@ class MainMenuState extends MusicBeatState
 				MusicBeatState.switchState(new TitleState());
 			}
 
-			if (controls.ACCEPT)
-			{
-				if (optionShit[curSelected] == 'donate')
-				{
-					//CoolUtil.browserLoad('https://ninja-muffin24.itch.io/funkin');
-				}
-			}
 			#if desktop
 			else if (FlxG.keys.anyJustPressed(debugKeys))
 			{
