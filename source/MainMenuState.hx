@@ -462,11 +462,11 @@ class MainMenuState extends MusicBeatState
 		{
 			arrows.visible = false;
 			FlxTween.tween(tape1, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
-			FlxTween.tween(tape2, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
-			FlxTween.tween(tape3, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
-			FlxTween.tween(tape4, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
-			FlxTween.tween(tape5, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
-			FlxTween.tween(tape6, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape2, {y: 50}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape3, {y: 50}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape4, {y: 50}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape5, {y: 50}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape6, {y: 50}, 0.95, {ease: FlxEase.cubeIn});
 
 			FlxTween.tween(camAchievement, {angle: 100}, 0.95, {ease: FlxEase.cubeIn});
 			FlxTween.tween(box, {y: 950}, 0.95, {ease: FlxEase.cubeIn});
@@ -497,12 +497,12 @@ class MainMenuState extends MusicBeatState
 		if (FlxG.keys.justPressed.ENTER && !canReset && Think && ThinkUnlocked && !GraceSelected)
 		{
 			arrows.visible = false;
-			FlxTween.tween(tape1, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape1, {y: 50}, 0.95, {ease: FlxEase.cubeIn});
 			FlxTween.tween(tape2, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
-			FlxTween.tween(tape3, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
-			FlxTween.tween(tape4, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
-			FlxTween.tween(tape5, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
-			FlxTween.tween(tape6, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape3, {y: 50}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape4, {y: 50}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape5, {y: 50}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape6, {y: 50}, 0.95, {ease: FlxEase.cubeIn});
 
 			FlxTween.tween(camAchievement, {angle: 100}, 0.95, {ease: FlxEase.cubeIn});
 			FlxTween.tween(box, {y: 950}, 0.95, {ease: FlxEase.cubeIn});
@@ -533,12 +533,12 @@ class MainMenuState extends MusicBeatState
 		if (FlxG.keys.justPressed.ENTER && !canReset && ScaryNight && ScaryNightUnlocked && !GraceSelected)
 		{
 			arrows.visible = false;
-			FlxTween.tween(tape1, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
-			FlxTween.tween(tape2, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape1, {y: 50}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape2, {y: 50}, 0.95, {ease: FlxEase.cubeIn});
 			FlxTween.tween(tape3, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
-			FlxTween.tween(tape4, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
-			FlxTween.tween(tape5, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
-			FlxTween.tween(tape6, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape4, {y: 50}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape5, {y: 50}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape6, {y: 50}, 0.95, {ease: FlxEase.cubeIn});
 
 			FlxTween.tween(camAchievement, {angle: 100}, 0.95, {ease: FlxEase.cubeIn});
 			FlxTween.tween(box, {y: 950}, 0.95, {ease: FlxEase.cubeIn});
@@ -569,12 +569,12 @@ class MainMenuState extends MusicBeatState
 		if (FlxG.keys.justPressed.ENTER && !canReset && Distraught && DistraughtUnlocked && !GraceSelected)
 		{
 			arrows.visible = false;
-			FlxTween.tween(tape1, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
-			FlxTween.tween(tape2, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
-			FlxTween.tween(tape3, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape1, {y: 50}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape2, {y: 50}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape3, {y: 50}, 0.95, {ease: FlxEase.cubeIn});
 			FlxTween.tween(tape4, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
-			FlxTween.tween(tape5, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
-			FlxTween.tween(tape6, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape5, {y: 50}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape6, {y: 50}, 0.95, {ease: FlxEase.cubeIn});
 
 			FlxTween.tween(camAchievement, {angle: 100}, 0.95, {ease: FlxEase.cubeIn});
 			FlxTween.tween(box, {y: 950}, 0.95, {ease: FlxEase.cubeIn});
@@ -605,12 +605,12 @@ class MainMenuState extends MusicBeatState
 		if (FlxG.keys.justPressed.ENTER && !canReset && Gift && GiftUnlocked && !GraceSelected)
 		{
 			arrows.visible = false;
-			FlxTween.tween(tape1, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
-			FlxTween.tween(tape2, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
-			FlxTween.tween(tape3, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
-			FlxTween.tween(tape4, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape1, {y: 50}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape2, {y: 50}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape3, {y: 50}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape4, {y: 50}, 0.95, {ease: FlxEase.cubeIn});
 			FlxTween.tween(tape5, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
-			FlxTween.tween(tape6, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape6, {y: 50}, 0.95, {ease: FlxEase.cubeIn});
 
 			FlxTween.tween(camAchievement, {angle: 100}, 0.95, {ease: FlxEase.cubeIn});
 			FlxTween.tween(box, {y: 950}, 0.95, {ease: FlxEase.cubeIn});
@@ -641,11 +641,11 @@ class MainMenuState extends MusicBeatState
 		if (FlxG.keys.justPressed.ENTER && !canReset && Thonk && ThonkUnlocked && !GraceSelected)
 		{
 			arrows.visible = false;
-			FlxTween.tween(tape1, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
-			FlxTween.tween(tape2, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
-			FlxTween.tween(tape3, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
-			FlxTween.tween(tape4, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
-			FlxTween.tween(tape5, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape1, {y: 50}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape2, {y: 50}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape3, {y: 50}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape4, {y: 50}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape5, {y: 50}, 0.95, {ease: FlxEase.cubeIn});
 			FlxTween.tween(tape6, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
 
 			FlxTween.tween(camAchievement, {angle: 100}, 0.95, {ease: FlxEase.cubeIn});
