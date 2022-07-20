@@ -106,7 +106,7 @@ class CreditsState extends MusicBeatState
 			['Nerdie',		        'nerd',			    'Vol. 1 BG Artist',					                        'https://twitter.com/Nerdieeee',			'279ADC'],
 			['???',		            'jonah',			'Press Enter',					                            'https://sites.google.com/view/jonah-marshall/bythorne',			'279ADC'],
 			[''],
-			['Specia Thanks'],
+			['Special Thanks'],
 			['Yabo',			    'yabo',			    'Vol. 1 Promo Artist',							            'https://twitter.com/yaboigp',			'389A58'],
 			['Coders United',	    'cu',	            'Motivated me to work -Breezy',							    'https://www.google.com/imgres?imgurl=https://i.kym-cdn.com/photos/images/original/000/224/446/lolspam.jpg&imgrefurl=https://knowyourmeme.com/photos/224446&tbnid=qgWN1hy-bRZXeM&vet=1&docid=hDzc6wDVAJhZmM&w=710&h=588&source=sh/x/im',			'389A58'],
 			['Nebula',			    'neb',			    'Implemented most of the shader',							'https://twitter.com/Nebula_Zorua',			'389A58'],
