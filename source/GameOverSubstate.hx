@@ -94,6 +94,10 @@ class GameOverSubstate extends MusicBeatSubstate
 		boyfriend.alpha = 0.00000000000000001;
 
 		camFollow = new FlxPoint(boyfriend.getGraphicMidpoint().x, boyfriend.getGraphicMidpoint().y);
+		
+		#if android
+  	addVirtualPad(NONE, A_B);
+    #end
 
 		//FlxG.sound.play(Paths.sound(deathSoundName));
 		Conductor.changeBPM(100);
