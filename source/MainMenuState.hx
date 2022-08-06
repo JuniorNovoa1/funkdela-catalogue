@@ -251,6 +251,10 @@ class MainMenuState extends MusicBeatState
 		}
 		#end
 
+    #if android
+  	addVirtualPad(FULL, A_B);
+    #end
+
 		super.create();
 	}
 
@@ -272,6 +276,7 @@ class MainMenuState extends MusicBeatState
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
 		}
 
+		#if !android
 		if (FlxG.keys.justPressed.R)
 		{
 			Rkey = true;
@@ -331,7 +336,9 @@ class MainMenuState extends MusicBeatState
 				canReset = false;
 			}
 		}
+		#end
 
+		#if !android
 		if (FlxG.keys.justPressed.ONE)
 		{
 			FlxTween.tween(tape1, {x: 525}, 0.35, {ease: FlxEase.cubeOut});
@@ -435,6 +442,502 @@ class MainMenuState extends MusicBeatState
 		}
 
 		if (FlxG.keys.justPressed.SIX)
+		{
+			FlxTween.tween(tape1, {x: 0}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape2, {x: 50}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape3, {x: 100}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape4, {x: 150}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape5, {x: 200}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape6, {x: 525}, 0.35, {ease: FlxEase.cubeOut});
+			if (ThonkUnlocked)
+			{
+				Grace = false;
+				Think = false;
+				ScaryNight = false;
+				Distraught = false;
+				Gift = false;
+				Thonk = true;
+			}
+			GraceSelected = false;
+			trace('Thonk');
+		}
+
+		// grace
+		// This looks ridiculous, but it works though.
+		// I've been trying to get this to work for a while and I was starting to get very frustrated.
+		if (FlxG.keys.justPressed.ENTER && !canReset && Grace && GraceSelected)
+		{
+			#if android
+			FlxG.stage.window.textInputEnabled = false;
+			if (FlxG.stage.window.onTextInput.has(eastereggFunction))
+				FlxG.stage.window.onTextInput.remove(eastereggFunction);
+			#end
+			arrows.visible = false;
+			FlxTween.tween(tape1, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape2, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape3, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape4, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape5, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape6, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
+
+			FlxTween.tween(camAchievement, {angle: 100}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(box, {y: 950}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tv, {y: 150}, 0.55, {ease: FlxEase.cubeOut});
+			FlxTween.tween(camAchievement, {zoom: 3.5}, 0.95, {
+				ease: FlxEase.cubeIn,
+				onComplete: function (twn:FlxTween)
+				{
+					var black:FlxSprite = new FlxSprite();
+					black.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+					black.cameras = [camAchievement];
+					add(black);
+
+					trace('loading grace');
+					PlayState.SONG = Song.loadFromJson('grace', 'grace');
+					PlayState.isStoryMode = false;
+					PlayState.storyDifficulty = 1;
+					PlayState.storyWeek = 1;
+					FlxTransitionableState.skipNextTransIn = true;
+					FlxTransitionableState.skipNextTransOut = true;
+
+					LoadingState.loadAndSwitchState(new PlayState());
+				}
+			});
+		}
+
+		// think
+		if (FlxG.keys.justPressed.ENTER && !canReset && Think && ThinkUnlocked && !GraceSelected)
+		{
+			#if android
+			FlxG.stage.window.textInputEnabled = false;
+			if (FlxG.stage.window.onTextInput.has(eastereggFunction))
+				FlxG.stage.window.onTextInput.remove(eastereggFunction);
+			#end
+			arrows.visible = false;
+			FlxTween.tween(tape1, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape2, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape3, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape4, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape5, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape6, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
+
+			FlxTween.tween(camAchievement, {angle: 100}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(box, {y: 950}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tv, {y: 150}, 0.55, {ease: FlxEase.cubeOut});
+			FlxTween.tween(camAchievement, {zoom: 3.5}, 0.95, {
+				ease: FlxEase.cubeIn,
+				onComplete: function (twn:FlxTween)
+				{
+					var black:FlxSprite = new FlxSprite();
+					black.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+					black.cameras = [camAchievement];
+					add(black);
+
+					trace("loading think");
+					PlayState.SONG = Song.loadFromJson('think-hard', 'think');
+					PlayState.isStoryMode = false;
+					PlayState.storyDifficulty = 2;
+					PlayState.storyWeek = 1;
+					FlxTransitionableState.skipNextTransIn = true;
+					FlxTransitionableState.skipNextTransOut = true;
+
+					LoadingState.loadAndSwitchState(new PlayState());
+				}
+			});
+		}	
+
+		// scary night
+		if (FlxG.keys.justPressed.ENTER && !canReset && ScaryNight && ScaryNightUnlocked && !GraceSelected)
+		{
+			#if android
+			FlxG.stage.window.textInputEnabled = false;
+			if (FlxG.stage.window.onTextInput.has(eastereggFunction))
+				FlxG.stage.window.onTextInput.remove(eastereggFunction);
+			#end
+			arrows.visible = false;
+			FlxTween.tween(tape1, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape2, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape3, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape4, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape5, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape6, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
+
+			FlxTween.tween(camAchievement, {angle: 100}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(box, {y: 950}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tv, {y: 150}, 0.55, {ease: FlxEase.cubeOut});
+			FlxTween.tween(camAchievement, {zoom: 3.5}, 0.95, {
+				ease: FlxEase.cubeIn,
+				onComplete: function (twn:FlxTween)
+				{
+					var black:FlxSprite = new FlxSprite();
+					black.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+					black.cameras = [camAchievement];
+					add(black);
+
+					trace('loading scary-night');
+					PlayState.SONG = Song.loadFromJson('scary-night', 'scary-night');
+					PlayState.isStoryMode = false;
+					PlayState.storyDifficulty = 1;
+					PlayState.storyWeek = 1;
+					FlxTransitionableState.skipNextTransIn = true;
+					FlxTransitionableState.skipNextTransOut = true;
+
+					LoadingState.loadAndSwitchState(new PlayState());
+				}
+			});
+		}
+
+		// distraught
+		if (FlxG.keys.justPressed.ENTER && !canReset && Distraught && DistraughtUnlocked && !GraceSelected)
+		{
+			#if android
+			FlxG.stage.window.textInputEnabled = false;
+			if (FlxG.stage.window.onTextInput.has(eastereggFunction))
+				FlxG.stage.window.onTextInput.remove(eastereggFunction);
+			#end
+			arrows.visible = false;
+			FlxTween.tween(tape1, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape2, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape3, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape4, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape5, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape6, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
+
+			FlxTween.tween(camAchievement, {angle: 100}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(box, {y: 950}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tv, {y: 150}, 0.55, {ease: FlxEase.cubeOut});
+			FlxTween.tween(camAchievement, {zoom: 3.5}, 0.95, {
+				ease: FlxEase.cubeIn,
+				onComplete: function (twn:FlxTween)
+				{
+					var black:FlxSprite = new FlxSprite();
+					black.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+					black.cameras = [camAchievement];
+					add(black);
+
+					trace('loading distraught');
+					PlayState.SONG = Song.loadFromJson('distraught', 'distraught');
+					PlayState.isStoryMode = false;
+					PlayState.storyDifficulty = 1;
+					PlayState.storyWeek = 1;
+					FlxTransitionableState.skipNextTransIn = true;
+					FlxTransitionableState.skipNextTransOut = true;
+
+					LoadingState.loadAndSwitchState(new PlayState());
+				}
+			});
+		}
+
+		// gift
+		if (FlxG.keys.justPressed.ENTER && !canReset && Gift && GiftUnlocked && !GraceSelected)
+		{
+			#if android
+			FlxG.stage.window.textInputEnabled = false;
+			if (FlxG.stage.window.onTextInput.has(eastereggFunction))
+				FlxG.stage.window.onTextInput.remove(eastereggFunction);
+			#end
+			arrows.visible = false;
+			FlxTween.tween(tape1, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape2, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape3, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape4, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape5, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape6, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
+
+			FlxTween.tween(camAchievement, {angle: 100}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(box, {y: 950}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tv, {y: 150}, 0.55, {ease: FlxEase.cubeOut});
+			FlxTween.tween(camAchievement, {zoom: 3.5}, 0.95, {
+				ease: FlxEase.cubeIn,
+				onComplete: function (twn:FlxTween)
+				{
+					var black:FlxSprite = new FlxSprite();
+					black.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+					black.cameras = [camAchievement];
+					add(black);
+
+					trace('loading gift');
+					PlayState.SONG = Song.loadFromJson('gift', 'gift');
+					PlayState.isStoryMode = false;
+					PlayState.storyDifficulty = 1;
+					PlayState.storyWeek = 1;
+					FlxTransitionableState.skipNextTransIn = true;
+					FlxTransitionableState.skipNextTransOut = true;
+
+					LoadingState.loadAndSwitchState(new PlayState());
+				}
+			});
+		}
+
+		// thonk
+		if (FlxG.keys.justPressed.ENTER && !canReset && Thonk && ThonkUnlocked && !GraceSelected)
+		{
+			#if android
+			FlxG.stage.window.textInputEnabled = false;
+			if (FlxG.stage.window.onTextInput.has(eastereggFunction))
+				FlxG.stage.window.onTextInput.remove(eastereggFunction);
+			#end
+			arrows.visible = false;
+			FlxTween.tween(tape1, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape2, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape3, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape4, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape5, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tape6, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
+
+			FlxTween.tween(camAchievement, {angle: 100}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(box, {y: 950}, 0.95, {ease: FlxEase.cubeIn});
+			FlxTween.tween(tv, {y: 150}, 0.55, {ease: FlxEase.cubeOut});
+			FlxTween.tween(camAchievement, {zoom: 3.5}, 0.95, {
+				ease: FlxEase.cubeIn,
+				onComplete: function (twn:FlxTween)
+				{
+					var black:FlxSprite = new FlxSprite();
+					black.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+					black.cameras = [camAchievement];
+					add(black);
+
+					trace('loading thonk');
+					PlayState.SONG = Song.loadFromJson('thonk', 'thonk');
+					PlayState.isStoryMode = false;
+					PlayState.storyDifficulty = 1;
+					PlayState.storyWeek = 1;
+					FlxTransitionableState.skipNextTransIn = true;
+					FlxTransitionableState.skipNextTransOut = true;
+
+					LoadingState.loadAndSwitchState(new PlayState());
+				}
+			});
+		}
+		#else
+		if (FlxG.android.justReleased.BACK)
+		{
+			FlxG.stage.window.textInputEnabled = true;
+			FlxG.stage.window.onTextInput.add(secretFunction);
+		}
+		#end
+
+		var lerpVal:Float = CoolUtil.boundTo(elapsed * 7.5, 0, 1);
+		camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
+
+		if (!selectedSomethin)
+		{
+			if (controls.UI_UP_P)
+			{
+				//FlxG.sound.play(Paths.sound('scrollMenu'));
+				//changeItem(-1);
+			}
+
+			if (controls.UI_DOWN_P)
+			{
+				//FlxG.sound.play(Paths.sound('scrollMenu'));
+				//changeItem(1);
+			}
+
+			if (controls.UI_LEFT_P)
+			{
+				selectedSomethin = true;
+				arrows.visible = false;
+				FlxTween.tween(tape1, {x: -500}, 0.75, {ease: FlxEase.cubeIn});
+				FlxTween.tween(tape2, {x: -500}, 0.75, {ease: FlxEase.cubeIn});
+				FlxTween.tween(tape3, {x: -500}, 0.75, {ease: FlxEase.cubeIn});
+				FlxTween.tween(tape4, {x: -500}, 0.75, {ease: FlxEase.cubeIn});
+				FlxTween.tween(tape5, {x: -500}, 0.75, {ease: FlxEase.cubeIn});
+				FlxTween.tween(tape6, {x: -500}, 0.75, {ease: FlxEase.cubeIn});
+				FlxTween.tween(tv, {y: 150}, 0.5, {ease: FlxEase.cubeIn});
+				new FlxTimer().start(0.2, function(timer:FlxTimer){
+					FlxTween.tween(camAchievement, {x: 1500}, 0.5, {
+					ease: FlxEase.cubeIn,
+					onComplete:function (twn:FlxTween)
+					{
+						LoadingState.loadAndSwitchState(new options.OptionsState());
+					}});
+				});
+			}
+	
+			if (controls.UI_RIGHT_P)
+			{
+				selectedSomethin = true;
+				arrows.visible = false;
+				FlxTween.tween(tape1, {x: 1500}, 0.75, {ease: FlxEase.cubeOut});
+				FlxTween.tween(tape2, {x: 1500}, 0.75, {ease: FlxEase.cubeOut});
+				FlxTween.tween(tape3, {x: 1500}, 0.75, {ease: FlxEase.cubeOut});
+				FlxTween.tween(tape4, {x: 1500}, 0.75, {ease: FlxEase.cubeOut});
+				FlxTween.tween(tape5, {x: 1500}, 0.75, {ease: FlxEase.cubeOut});
+				FlxTween.tween(tape6, {x: 1500}, 0.75, {ease: FlxEase.cubeOut});
+				FlxTween.tween(tv, {y: 150}, 0.55, {ease: FlxEase.cubeOut});
+				new FlxTimer().start(0.2, function(timer:FlxTimer) {
+					FlxTween.tween(camAchievement, {x: -1500}, 0.5, {
+					ease: FlxEase.cubeIn,
+					onComplete:function (twn:FlxTween)
+					{
+						MusicBeatState.switchState(new CreditsState());
+					}});
+			    });
+			}
+
+			if (controls.BACK)
+			{
+				#if android
+				FlxG.stage.window.textInputEnabled = false;
+				if (FlxG.stage.window.onTextInput.has(eastereggFunction))
+					FlxG.stage.window.onTextInput.remove(eastereggFunction);
+				#end
+				selectedSomethin = true;
+				FlxG.sound.play(Paths.sound('cancelMenu'));
+				MusicBeatState.switchState(new TitleState());
+			}
+
+			#if desktop
+			else if (FlxG.keys.anyJustPressed(debugKeys))
+			{
+				selectedSomethin = true;
+				MusicBeatState.switchState(new MasterEditorMenu());
+			}
+			#end
+		}
+
+		super.update(elapsed);
+
+		menuItems.forEach(function(spr:FlxSprite)
+		{
+			spr.screenCenter(X);
+		});
+	}
+
+	function changeItem(huh:Int = 0)
+	{
+		curSelected += huh;
+
+		if (curSelected >= menuItems.length)
+			curSelected = 0;
+		if (curSelected < 0)
+			curSelected = menuItems.length - 1;
+
+		menuItems.forEach(function(spr:FlxSprite)
+		{
+			spr.animation.play('idle');
+			spr.updateHitbox();
+
+			if (spr.ID == curSelected)
+			{
+				spr.animation.play('selected');
+				var add:Float = 0;
+				if(menuItems.length > 4) {
+					add = menuItems.length * 8;
+				}
+				camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y - add);
+				spr.centerOffsets();
+			}
+		});
+	}
+
+	#if android
+	function secretFunction(letter:String)
+	{
+		if (letter.toLowerCase() == '1')
+		{
+			FlxTween.tween(tape1, {x: 525}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape2, {x: 800}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape3, {x: 850}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape4, {x: 900}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape5, {x: 950}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape6, {x: 1000}, 0.35, {ease: FlxEase.cubeOut});
+			trace('Grace');
+			Grace = true;
+			Think = false;
+			ScaryNight = false;
+			Distraught = false;
+			Gift = false;
+			Thonk = false;
+			GraceSelected = true;
+		}
+
+		if (letter.toLowerCase() == '2')
+		{
+			FlxTween.tween(tape1, {x: 0}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape2, {x: 525}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape3, {x: 850}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape4, {x: 900}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape5, {x: 950}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape6, {x: 1000}, 0.35, {ease: FlxEase.cubeOut});
+			trace('Think'); 			
+			if (ThinkUnlocked)
+			{
+				Grace = false;
+				Think = true;
+				ScaryNight = false;
+				Distraught = false;
+				Gift = false;
+				Thonk = false;
+			}
+			GraceSelected = false;
+		}
+
+		if (letter.toLowerCase() == '3')
+		{
+			FlxTween.tween(tape1, {x: 0}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape2, {x: 50}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape3, {x: 525}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape4, {x: 900}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape5, {x: 950}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape6, {x: 1000}, 0.35, {ease: FlxEase.cubeOut});
+			trace('Scary Night');
+			if (ScaryNightUnlocked)
+			{
+				Grace = false;
+				Think = false;
+				ScaryNight = true;
+				Distraught = false;
+				Gift = false;
+				Thonk = false;
+			}
+			GraceSelected = false;
+		}
+
+		if (letter.toLowerCase() == '4')
+		{
+			FlxTween.tween(tape1, {x: 0}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape2, {x: 50}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape3, {x: 100}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape4, {x: 525}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape5, {x: 950}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape6, {x: 1000}, 0.35, {ease: FlxEase.cubeOut});
+			trace('Distraught');
+			if (DistraughtUnlocked)
+			{
+				Grace = false;
+				Think = false;
+				ScaryNight = false;
+				Distraught = true;
+				Gift = false;
+				Thonk = false;
+			}
+			GraceSelected = false;
+		}
+
+		if (letter.toLowerCase() == '5')
+		{
+			FlxTween.tween(tape1, {x: 0}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape2, {x: 50}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape3, {x: 100}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape4, {x: 150}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape5, {x: 525}, 0.35, {ease: FlxEase.cubeOut});
+			FlxTween.tween(tape6, {x: 1000}, 0.35, {ease: FlxEase.cubeOut});
+			trace('Gift');			
+			if (GiftUnlocked)
+			{
+				Grace = false;
+				Think = false;
+				ScaryNight = false;
+				Distraught = false;
+				Gift = true;
+				Thonk = false;
+			}
+			GraceSelected = false;
+		}
+
+		if (letter.toLowerCase() == '6')
 		{
 			FlxTween.tween(tape1, {x: 0}, 0.35, {ease: FlxEase.cubeOut});
 			FlxTween.tween(tape2, {x: 50}, 0.35, {ease: FlxEase.cubeOut});
@@ -672,114 +1175,6 @@ class MainMenuState extends MusicBeatState
 				}
 			});
 		}
-
-		var lerpVal:Float = CoolUtil.boundTo(elapsed * 7.5, 0, 1);
-		camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
-
-		if (!selectedSomethin)
-		{
-			if (controls.UI_UP_P)
-			{
-				//FlxG.sound.play(Paths.sound('scrollMenu'));
-				//changeItem(-1);
-			}
-
-			if (controls.UI_DOWN_P)
-			{
-				//FlxG.sound.play(Paths.sound('scrollMenu'));
-				//changeItem(1);
-			}
-
-			if (controls.UI_LEFT_P)
-			{
-				selectedSomethin = true;
-				arrows.visible = false;
-				FlxTween.tween(tape1, {x: -500}, 0.75, {ease: FlxEase.cubeIn});
-				FlxTween.tween(tape2, {x: -500}, 0.75, {ease: FlxEase.cubeIn});
-				FlxTween.tween(tape3, {x: -500}, 0.75, {ease: FlxEase.cubeIn});
-				FlxTween.tween(tape4, {x: -500}, 0.75, {ease: FlxEase.cubeIn});
-				FlxTween.tween(tape5, {x: -500}, 0.75, {ease: FlxEase.cubeIn});
-				FlxTween.tween(tape6, {x: -500}, 0.75, {ease: FlxEase.cubeIn});
-				FlxTween.tween(tv, {y: 150}, 0.5, {ease: FlxEase.cubeIn});
-				new FlxTimer().start(0.2, function(timer:FlxTimer){
-					FlxTween.tween(camAchievement, {x: 1500}, 0.5, {
-					ease: FlxEase.cubeIn,
-					onComplete:function (twn:FlxTween)
-					{
-						LoadingState.loadAndSwitchState(new options.OptionsState());
-					}});
-				});
-			}
-	
-			if (controls.UI_RIGHT_P)
-			{
-				selectedSomethin = true;
-				arrows.visible = false;
-				FlxTween.tween(tape1, {x: 1500}, 0.75, {ease: FlxEase.cubeOut});
-				FlxTween.tween(tape2, {x: 1500}, 0.75, {ease: FlxEase.cubeOut});
-				FlxTween.tween(tape3, {x: 1500}, 0.75, {ease: FlxEase.cubeOut});
-				FlxTween.tween(tape4, {x: 1500}, 0.75, {ease: FlxEase.cubeOut});
-				FlxTween.tween(tape5, {x: 1500}, 0.75, {ease: FlxEase.cubeOut});
-				FlxTween.tween(tape6, {x: 1500}, 0.75, {ease: FlxEase.cubeOut});
-				FlxTween.tween(tv, {y: 150}, 0.55, {ease: FlxEase.cubeOut});
-				new FlxTimer().start(0.2, function(timer:FlxTimer) {
-					FlxTween.tween(camAchievement, {x: -1500}, 0.5, {
-					ease: FlxEase.cubeIn,
-					onComplete:function (twn:FlxTween)
-					{
-						MusicBeatState.switchState(new CreditsState());
-					}});
-			    });
-			}
-
-			if (controls.BACK)
-			{
-				selectedSomethin = true;
-				FlxG.sound.play(Paths.sound('cancelMenu'));
-				MusicBeatState.switchState(new TitleState());
-			}
-
-			#if desktop
-			else if (FlxG.keys.anyJustPressed(debugKeys))
-			{
-				selectedSomethin = true;
-				MusicBeatState.switchState(new MasterEditorMenu());
-			}
-			#end
-		}
-
-		super.update(elapsed);
-
-		menuItems.forEach(function(spr:FlxSprite)
-		{
-			spr.screenCenter(X);
-		});
 	}
-
-	function changeItem(huh:Int = 0)
-	{
-		curSelected += huh;
-
-		if (curSelected >= menuItems.length)
-			curSelected = 0;
-		if (curSelected < 0)
-			curSelected = menuItems.length - 1;
-
-		menuItems.forEach(function(spr:FlxSprite)
-		{
-			spr.animation.play('idle');
-			spr.updateHitbox();
-
-			if (spr.ID == curSelected)
-			{
-				spr.animation.play('selected');
-				var add:Float = 0;
-				if(menuItems.length > 4) {
-					add = menuItems.length * 8;
-				}
-				camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y - add);
-				spr.centerOffsets();
-			}
-		});
-	}
+	#end
 }
