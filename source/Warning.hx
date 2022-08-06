@@ -29,6 +29,10 @@ class Warning extends MusicBeatState
 		warning.alpha = 0;
 		add(warning);
 
+    #if android
+  	addVirtualPad(NONE, A_B);
+    #end
+
 		FlxG.sound.music.pause();
 		FlxG.sound.play(Paths.sound('scary'));
 
