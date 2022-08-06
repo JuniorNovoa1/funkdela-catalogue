@@ -1208,6 +1208,10 @@ class PlayState extends MusicBeatState
 		timeTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
 
+    #if android
+		addAndroidControls();
+	  #end
+
 		//vcrStuff.setScanlines(true);
 		//vcrStuff.setPerspective(true);
 		//vcrStuff.setGlitchModifier(0);
