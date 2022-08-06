@@ -467,11 +467,6 @@ class MainMenuState extends MusicBeatState
 		// I've been trying to get this to work for a while and I was starting to get very frustrated.
 		if (FlxG.keys.justPressed.ENTER && !canReset && Grace && GraceSelected)
 		{
-			#if android
-			FlxG.stage.window.textInputEnabled = false;
-			if (FlxG.stage.window.onTextInput.has(eastereggFunction))
-				FlxG.stage.window.onTextInput.remove(eastereggFunction);
-			#end
 			arrows.visible = false;
 			FlxTween.tween(tape1, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
 			FlxTween.tween(tape2, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
@@ -508,11 +503,6 @@ class MainMenuState extends MusicBeatState
 		// think
 		if (FlxG.keys.justPressed.ENTER && !canReset && Think && ThinkUnlocked && !GraceSelected)
 		{
-			#if android
-			FlxG.stage.window.textInputEnabled = false;
-			if (FlxG.stage.window.onTextInput.has(eastereggFunction))
-				FlxG.stage.window.onTextInput.remove(eastereggFunction);
-			#end
 			arrows.visible = false;
 			FlxTween.tween(tape1, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
 			FlxTween.tween(tape2, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
@@ -549,11 +539,6 @@ class MainMenuState extends MusicBeatState
 		// scary night
 		if (FlxG.keys.justPressed.ENTER && !canReset && ScaryNight && ScaryNightUnlocked && !GraceSelected)
 		{
-			#if android
-			FlxG.stage.window.textInputEnabled = false;
-			if (FlxG.stage.window.onTextInput.has(eastereggFunction))
-				FlxG.stage.window.onTextInput.remove(eastereggFunction);
-			#end
 			arrows.visible = false;
 			FlxTween.tween(tape1, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
 			FlxTween.tween(tape2, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
@@ -590,11 +575,6 @@ class MainMenuState extends MusicBeatState
 		// distraught
 		if (FlxG.keys.justPressed.ENTER && !canReset && Distraught && DistraughtUnlocked && !GraceSelected)
 		{
-			#if android
-			FlxG.stage.window.textInputEnabled = false;
-			if (FlxG.stage.window.onTextInput.has(eastereggFunction))
-				FlxG.stage.window.onTextInput.remove(eastereggFunction);
-			#end
 			arrows.visible = false;
 			FlxTween.tween(tape1, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
 			FlxTween.tween(tape2, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
@@ -631,11 +611,6 @@ class MainMenuState extends MusicBeatState
 		// gift
 		if (FlxG.keys.justPressed.ENTER && !canReset && Gift && GiftUnlocked && !GraceSelected)
 		{
-			#if android
-			FlxG.stage.window.textInputEnabled = false;
-			if (FlxG.stage.window.onTextInput.has(eastereggFunction))
-				FlxG.stage.window.onTextInput.remove(eastereggFunction);
-			#end
 			arrows.visible = false;
 			FlxTween.tween(tape1, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
 			FlxTween.tween(tape2, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
@@ -672,11 +647,6 @@ class MainMenuState extends MusicBeatState
 		// thonk
 		if (FlxG.keys.justPressed.ENTER && !canReset && Thonk && ThonkUnlocked && !GraceSelected)
 		{
-			#if android
-			FlxG.stage.window.textInputEnabled = false;
-			if (FlxG.stage.window.onTextInput.has(eastereggFunction))
-				FlxG.stage.window.onTextInput.remove(eastereggFunction);
-			#end
 			arrows.visible = false;
 			FlxTween.tween(tape1, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
 			FlxTween.tween(tape2, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
@@ -963,6 +933,11 @@ class MainMenuState extends MusicBeatState
 		// I've been trying to get this to work for a while and I was starting to get very frustrated.
 		if (FlxG.keys.justPressed.ENTER && !canReset && Grace && GraceSelected)
 		{
+			#if android
+			FlxG.stage.window.textInputEnabled = false;
+			if (FlxG.stage.window.onTextInput.has(eastereggFunction))
+				FlxG.stage.window.onTextInput.remove(eastereggFunction);
+			#end
 			arrows.visible = false;
 			FlxTween.tween(tape1, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
 			FlxTween.tween(tape2, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
@@ -999,6 +974,11 @@ class MainMenuState extends MusicBeatState
 		// think
 		if (FlxG.keys.justPressed.ENTER && !canReset && Think && ThinkUnlocked && !GraceSelected)
 		{
+			#if android
+			FlxG.stage.window.textInputEnabled = false;
+			if (FlxG.stage.window.onTextInput.has(eastereggFunction))
+				FlxG.stage.window.onTextInput.remove(eastereggFunction);
+			#end
 			arrows.visible = false;
 			FlxTween.tween(tape1, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
 			FlxTween.tween(tape2, {y: 450}, 0.95, {ease: FlxEase.cubeIn});
@@ -1035,6 +1015,11 @@ class MainMenuState extends MusicBeatState
 		// scary night
 		if (FlxG.keys.justPressed.ENTER && !canReset && ScaryNight && ScaryNightUnlocked && !GraceSelected)
 		{
+			#if android
+			FlxG.stage.window.textInputEnabled = false;
+			if (FlxG.stage.window.onTextInput.has(eastereggFunction))
+				FlxG.stage.window.onTextInput.remove(eastereggFunction);
+			#end
 			arrows.visible = false;
 			FlxTween.tween(tape1, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
 			FlxTween.tween(tape2, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
@@ -1071,6 +1056,11 @@ class MainMenuState extends MusicBeatState
 		// distraught
 		if (FlxG.keys.justPressed.ENTER && !canReset && Distraught && DistraughtUnlocked && !GraceSelected)
 		{
+			#if android
+			FlxG.stage.window.textInputEnabled = false;
+			if (FlxG.stage.window.onTextInput.has(eastereggFunction))
+				FlxG.stage.window.onTextInput.remove(eastereggFunction);
+			#end
 			arrows.visible = false;
 			FlxTween.tween(tape1, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
 			FlxTween.tween(tape2, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
@@ -1107,6 +1097,11 @@ class MainMenuState extends MusicBeatState
 		// gift
 		if (FlxG.keys.justPressed.ENTER && !canReset && Gift && GiftUnlocked && !GraceSelected)
 		{
+			#if android
+			FlxG.stage.window.textInputEnabled = false;
+			if (FlxG.stage.window.onTextInput.has(eastereggFunction))
+				FlxG.stage.window.onTextInput.remove(eastereggFunction);
+			#end
 			arrows.visible = false;
 			FlxTween.tween(tape1, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
 			FlxTween.tween(tape2, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
@@ -1143,6 +1138,11 @@ class MainMenuState extends MusicBeatState
 		// thonk
 		if (FlxG.keys.justPressed.ENTER && !canReset && Thonk && ThonkUnlocked && !GraceSelected)
 		{
+			#if android
+			FlxG.stage.window.textInputEnabled = false;
+			if (FlxG.stage.window.onTextInput.has(eastereggFunction))
+				FlxG.stage.window.onTextInput.remove(eastereggFunction);
+			#end
 			arrows.visible = false;
 			FlxTween.tween(tape1, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
 			FlxTween.tween(tape2, {y: 800}, 0.55, {ease: FlxEase.cubeIn});
