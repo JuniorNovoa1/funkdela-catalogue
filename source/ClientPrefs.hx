@@ -59,6 +59,16 @@ class ClientPrefs {
 	public static var badWindow:Int = 135;
 	public static var safeFrames:Float = 10;
 
+    // This is for the tapes.
+	/*This game doesn't like to save data, so I moved everything here.
+    Believe me, I tried it before and it works.
+	*/
+	public static var ThinkUnlocked:Bool = false;
+	public static var ScaryNightUnlocked:Bool = false;
+	public static var DistraughtUnlocked:Bool = false;
+	public static var GiftUnlocked:Bool = false;
+	public static var ThonkUnlocked:Bool = false;
+
 	//Every key has two binds, add your key bind down here and then add your control on options/ControlsSubState.hx and Controls.hx
 	public static var keyBinds:Map<String, Array<FlxKey>> = [
 		//Key Bind, Name for ControlsSubState
@@ -101,8 +111,6 @@ class ClientPrefs {
 		FlxG.save.data.noteSplashes = noteSplashes;
 		FlxG.save.data.lowQuality = lowQuality;
 		FlxG.save.data.framerate = framerate;
-		//FlxG.save.data.cursing = cursing;
-		//FlxG.save.data.violence = violence;
 		FlxG.save.data.camZooms = camZooms;
 		FlxG.save.data.noteOffset = noteOffset;
 		FlxG.save.data.hideHud = hideHud;
@@ -126,6 +134,13 @@ class ClientPrefs {
 		FlxG.save.data.controllerMode = controllerMode;
 		FlxG.save.data.hitsoundVolume = hitsoundVolume;
 		FlxG.save.data.pauseMusic = pauseMusic;
+
+		// for tapes
+		FlxG.save.data.think = ThinkUnlocked;
+		FlxG.save.data.scarynight = ScaryNightUnlocked;
+		FlxG.save.data.distraught = DistraughtUnlocked;
+		FlxG.save.data.gift = GiftUnlocked;
+		FlxG.save.data.thonk = ThonkUnlocked;
 	
 		FlxG.save.flush();
 
@@ -174,12 +189,6 @@ class ClientPrefs {
 				FlxG.updateFramerate = framerate;
 			}
 		}
-		/*if(FlxG.save.data.cursing != null) {
-			cursing = FlxG.save.data.cursing;
-		}
-		if(FlxG.save.data.violence != null) {
-			violence = FlxG.save.data.violence;
-		}*/
 		if(FlxG.save.data.camZooms != null) {
 			camZooms = FlxG.save.data.camZooms;
 		}
@@ -235,6 +244,22 @@ class ClientPrefs {
 		if(FlxG.save.data.pauseMusic != null) {
 			pauseMusic = FlxG.save.data.pauseMusic;
 		}
+		// for tapes
+		if(FlxG.save.data.think != null) {
+			ThinkUnlocked = FlxG.save.data.think;
+		}
+		if(FlxG.save.data.scarynight != null) {
+			ScaryNightUnlocked = FlxG.save.data.scarynight;
+		}
+		if(FlxG.save.data.distraught != null) {
+			DistraughtUnlocked = FlxG.save.data.distraught;
+		}
+		if(FlxG.save.data.gift != null) {
+			GiftUnlocked = FlxG.save.data.gift;
+		}
+		if(FlxG.save.data.thonk != null) {
+			ThonkUnlocked = FlxG.save.data.thonk;
+		}								
 		if(FlxG.save.data.gameplaySettings != null)
 		{
 			var savedMap:Map<String, Dynamic> = FlxG.save.data.gameplaySettings;
