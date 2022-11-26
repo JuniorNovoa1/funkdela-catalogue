@@ -18,6 +18,8 @@ class GameOverSubstate extends MusicBeatSubstate
 	var camFollow:FlxPoint;
 	var camOther:FlxCamera;
 	var VcrEffect:FlxSprite;
+	var daIcon:FlxSprite;
+
 	var camFollowPos:FlxObject;
 	var updateCamera:Bool = false;
 	var playingDeathSound:Bool = false;
@@ -55,6 +57,17 @@ class GameOverSubstate extends MusicBeatSubstate
 		errorgameover.updateHitbox();
 		add(errorgameover);
 
+		if (PlayState.SONG.song.toLowerCase() == 'think') {
+			daIcon = new FlxSprite(PlayState.daIconOffset[0], PlayState.daIconOffset[1]);
+			daIcon.frames = Paths.getSparrowAtlas('cesariconss');
+			daIcon.animation.addByPrefix('shakey', "shakey0", 16);
+			daIcon.animation.play('shakey');
+			daIcon.antialiasing = ClientPrefs.globalAntialiasing;
+			daIcon.cameras = [camOther];
+			daIcon.updateHitbox();
+			add(daIcon);
+		}
+
 		VcrEffect = new FlxSprite(0, 0);
 		VcrEffect.frames = Paths.getSparrowAtlas('vintage', 'shared');
 		VcrEffect.animation.addByPrefix('idle', "idle0", 16);
@@ -71,7 +84,7 @@ class GameOverSubstate extends MusicBeatSubstate
 
 		FlxG.sound.play(Paths.sound('hospital', 'shared'));
 
-		new FlxTimer().start(9, function(tmr:FlxTimer)
+		new FlxTimer().start(3, function(tmr:FlxTimer)
 		{
 			endBullshit();
 		});
@@ -79,7 +92,7 @@ class GameOverSubstate extends MusicBeatSubstate
 		super.create();
 	}
 
-	public function new(x:Float, y:Float, camX:Float, camY:Float)
+	public function new(camX:Float, camY:Float)
 	{
 		super();
 
@@ -87,7 +100,7 @@ class GameOverSubstate extends MusicBeatSubstate
 
 		Conductor.songPosition = 0;
 
-		boyfriend = new Boyfriend(x, y, characterName);
+		boyfriend = new Boyfriend(0, 0, characterName);
 		boyfriend.x += boyfriend.positionArray[0];
 		boyfriend.y += boyfriend.positionArray[1];
 		add(boyfriend);
@@ -119,11 +132,6 @@ class GameOverSubstate extends MusicBeatSubstate
 			var lerpVal:Float = CoolUtil.boundTo(elapsed * 0.6, 0, 1);
 			camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
 		}
-
-		new FlxTimer().start(2, function(tmr:FlxTimer)
-		{
-			endBullshit();
-		});
 
 		if (controls.BACK)
 		{
